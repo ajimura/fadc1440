@@ -1,0 +1,11 @@
+*~
+db
+greybox_tmp
+incremental_db
+output_files
+*.bak
+*.bck
+*.orig
+*.rpt
+.DS_Store
+._*
