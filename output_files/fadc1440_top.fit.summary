@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Jun 20 19:08:43 2019
+Quartus Prime Version : 18.1.1 Build 646 04/11/2019 SJ Standard Edition
+Revision Name : fadc1440_top
+Top-level Entity Name : fadc1440_top
+Family : Cyclone IV E
+Device : EP4CE40F23C7
+Timing Models : Final
+Total logic elements : 26,948 / 39,600 ( 68 % )
+    Total combinational functions : 23,934 / 39,600 ( 60 % )
+    Dedicated logic registers : 13,977 / 39,600 ( 35 % )
+Total registers : 14009
+Total pins : 92 / 329 ( 28 % )
+Total virtual pins : 0
+Total memory bits : 508,512 / 1,161,216 ( 44 % )
+Embedded Multiplier 9-bit elements : 0 / 232 ( 0 % )
+Total PLLs : 4 / 4 ( 100 % )

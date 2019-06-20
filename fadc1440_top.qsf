@@ -1,0 +1,307 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+# Date created = 20:42:42  November 22, 2013
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		fadc1440_top_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE40F23C7
+set_global_assignment -name TOP_LEVEL_ENTITY fadc1440_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:42:42  NOVEMBER 22, 2013"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.1 Standard Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
+set_location_assignment PIN_J21 -to ACLKA
+set_instance_assignment -name IO_STANDARD LVDS -to ACLKA
+set_location_assignment PIN_B6 -to ACLKB
+set_instance_assignment -name IO_STANDARD LVDS_E_3R -to ACLKB
+set_location_assignment PIN_B20 -to CSB[1]
+set_location_assignment PIN_AB18 -to CSB[0]
+set_location_assignment PIN_R21 -to DCOA
+set_instance_assignment -name IO_STANDARD LVDS -to DCOA
+set_location_assignment PIN_B11 -to DCOB
+set_instance_assignment -name IO_STANDARD LVDS -to DCOB
+set_location_assignment PIN_L21 -to DINA[7]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[7]
+set_location_assignment PIN_M21 -to DINA[6]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[6]
+set_location_assignment PIN_N21 -to DINA[5]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[5]
+set_location_assignment PIN_P21 -to DINA[4]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[4]
+set_location_assignment PIN_U21 -to DINA[3]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[3]
+set_location_assignment PIN_V21 -to DINA[2]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[2]
+set_location_assignment PIN_W21 -to DINA[1]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[1]
+set_location_assignment PIN_Y21 -to DINA[0]
+set_instance_assignment -name IO_STANDARD LVDS -to DINA[0]
+set_location_assignment PIN_V22 -to "DINA[2](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[2](n)"
+set_location_assignment PIN_L22 -to "DINA[7](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[7](n)"
+set_location_assignment PIN_M22 -to "DINA[6](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[6](n)"
+set_location_assignment PIN_N22 -to "DINA[5](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[5](n)"
+set_location_assignment PIN_P22 -to "DINA[4](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[4](n)"
+set_location_assignment PIN_U22 -to "DINA[3](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[3](n)"
+set_location_assignment PIN_W22 -to "DINA[1](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[1](n)"
+set_location_assignment PIN_Y22 -to "DINA[0](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINA[0](n)"
+set_location_assignment PIN_B7 -to DINB[7]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[7]
+set_location_assignment PIN_B8 -to DINB[6]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[6]
+set_location_assignment PIN_B9 -to DINB[5]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[5]
+set_location_assignment PIN_B10 -to DINB[4]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[4]
+set_location_assignment PIN_B13 -to DINB[3]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[3]
+set_location_assignment PIN_B14 -to DINB[2]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[2]
+set_location_assignment PIN_B15 -to DINB[1]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[1]
+set_location_assignment PIN_B16 -to DINB[0]
+set_instance_assignment -name IO_STANDARD LVDS -to DINB[0]
+set_location_assignment PIN_A7 -to "DINB[7](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[7](n)"
+set_location_assignment PIN_A8 -to "DINB[6](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[6](n)"
+set_location_assignment PIN_A9 -to "DINB[5](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[5](n)"
+set_location_assignment PIN_A10 -to "DINB[4](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[4](n)"
+set_location_assignment PIN_A13 -to "DINB[3](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[3](n)"
+set_location_assignment PIN_A14 -to "DINB[2](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[2](n)"
+set_location_assignment PIN_A15 -to "DINB[1](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[1](n)"
+set_location_assignment PIN_A16 -to "DINB[0](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DINB[0](n)"
+set_location_assignment PIN_T21 -to FCOA
+set_instance_assignment -name IO_STANDARD LVDS -to FCOA
+set_location_assignment PIN_B12 -to FCOB
+set_instance_assignment -name IO_STANDARD LVDS -to FCOB
+set_location_assignment PIN_P2 -to LVDSin[1]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSin[1]
+set_location_assignment PIN_M2 -to LVDSin[0]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSin[0]
+set_location_assignment PIN_M1 -to "LVDSin[0](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "LVDSin[0](n)"
+set_location_assignment PIN_P1 -to "LVDSin[1](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "LVDSin[1](n)"
+set_location_assignment PIN_R2 -to LVDSout[1]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSout[1]
+set_location_assignment PIN_N2 -to LVDSout[0]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSout[0]
+set_location_assignment PIN_N1 -to "LVDSout[0](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "LVDSout[0](n)"
+set_location_assignment PIN_R1 -to "LVDSout[1](n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "LVDSout[1](n)"
+set_location_assignment PIN_AB12 -to OSC
+set_location_assignment PIN_A20 -to PDWN[1]
+set_location_assignment PIN_AB17 -to PDWN[0]
+set_location_assignment PIN_B19 -to SCLK[1]
+set_location_assignment PIN_AB20 -to SCLK[0]
+set_location_assignment PIN_A19 -to SDIO[1]
+set_location_assignment PIN_AB19 -to SDIO[0]
+set_location_assignment PIN_A12 -to "FCOB(n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "FCOB(n)"
+set_location_assignment PIN_R22 -to "DCOA(n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DCOA(n)"
+set_location_assignment PIN_A11 -to "DCOB(n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "DCOB(n)"
+set_location_assignment PIN_J22 -to "ACLKA(n)"
+set_instance_assignment -name IO_STANDARD LVDS -to "ACLKA(n)"
+set_location_assignment PIN_A6 -to "ACLKB(n)"
+set_instance_assignment -name IO_STANDARD LVDS_E_3R -to "ACLKB(n)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_G1 -to CIN[0]
+set_location_assignment PIN_F22 -to COUT[2]
+set_location_assignment PIN_F21 -to COUT[1]
+set_location_assignment PIN_H1 -to COUT[0]
+set_location_assignment PIN_G22 -to CIN[2]
+set_location_assignment PIN_G21 -to CIN[1]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSin[3]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSin[2]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSout[3]
+set_instance_assignment -name IO_STANDARD LVDS -to LVDSout[2]
+set_location_assignment PIN_B1 -to LED
+set_location_assignment PIN_W2 -to LVDSin[3]
+set_location_assignment PIN_W1 -to "LVDSin[3](n)"
+set_location_assignment PIN_U2 -to LVDSin[2]
+set_location_assignment PIN_U1 -to "LVDSin[2](n)"
+set_location_assignment PIN_Y2 -to LVDSout[3]
+set_location_assignment PIN_Y1 -to "LVDSout[3](n)"
+set_location_assignment PIN_V2 -to LVDSout[2]
+set_location_assignment PIN_V1 -to "LVDSout[2](n)"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name TIMING_ANALYZER_DO_REPORT_TIMING ON
+set_global_assignment -name TIMING_ANALYZER_DO_CCPP_REMOVAL ON
+set_global_assignment -name SYNCHRONIZER_IDENTIFICATION AUTO
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS OUTPUT DRIVING GROUND"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_instance_assignment -name IO_STANDARD "2.5 V" -to PDWN[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SCLK[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SDIO[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to CSB[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SDIO[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to OSC
+set_instance_assignment -name IO_STANDARD "2.5 V" -to PDWN[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SCLK[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to CSB[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to CIN[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to CIN[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to COUT[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to COUT[2]
+set_global_assignment -name EDA_BOARD_DESIGN_BOUNDARY_SCAN_TOOL "<None>"
+set_instance_assignment -name POWER_TOGGLE_RATE 560000000 -to DINA
+set_instance_assignment -name POWER_TOGGLE_RATE 560000000 -to DINB
+set_location_assignment PIN_AB16 -to SYNC[0]
+set_location_assignment PIN_B22 -to SYNC[1]
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE 100%
+set_instance_assignment -name IO_STANDARD LVDS -to TrigIn
+set_instance_assignment -name IO_STANDARD LVDS_E_3R -to TrigOut
+set_location_assignment PIN_AA10 -to TrigIn[3]
+set_location_assignment PIN_AB10 -to "TrigIn[3](n)"
+set_location_assignment PIN_AA8 -to TrigIn[2]
+set_location_assignment PIN_AB8 -to "TrigIn[2](n)"
+set_location_assignment PIN_AA7 -to TrigIn[1]
+set_location_assignment PIN_AB7 -to "TrigIn[1](n)"
+set_location_assignment PIN_AA5 -to TrigIn[0]
+set_location_assignment PIN_AB5 -to "TrigIn[0](n)"
+set_location_assignment PIN_AA13 -to TrigOut[1]
+set_location_assignment PIN_AB13 -to "TrigOut[1](n)"
+set_location_assignment PIN_AA9 -to TrigOut[0]
+set_location_assignment PIN_AB9 -to "TrigOut[0](n)"
+set_location_assignment PIN_C20 -to TMP0
+set_location_assignment PIN_C21 -to TMP1
+set_global_assignment -name SDC_FILE fadc1440_top.sdc
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPTransmitter.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPTimer.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPTimeCodeControl.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPSynchronizeOnePulse.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPStatisticalInformationCount.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPStateMachine.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPReceiverSynchronize.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPPackage.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPLinkInterface.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPFIFO9x64.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIP.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/Altera/RMAPTargetIPFIFO8x2kAltera.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/Altera/RMAPTargetIPCRCRomAltera.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/Altera/FIFO8x2kAltera.vhd"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/Altera/crcRomAltera.vhd"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/RMAPTargetIPPackage.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/RMAPTargetIPDMAController.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/RMAPTargetIPDecoder.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-RMAP/VHDL/RMAPTargetIP.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/Altera/SpaceWireRouterIPRam32x256Altera.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/Altera/SpaceWireRouterIPCRCRomAltera.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/Altera/Ram32x256XAltera.vhd"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPTimeOutEEP.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPTimeOutCount.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPTimeCodeControl6.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPTableArbiter7.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPStatistics.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPSpaceWirePort.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPRouterRoutingTable32x256.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPRouterControlRegister.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPRMAPPort.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPRMAPDecoder.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPPackage.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPLatchedPulse8.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPLatchedPulse.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPCreditCount.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPConfigurationPackage.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPArbiter7x7.vhdl"
+set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIP.vhdl"
+set_global_assignment -name VHDL_FILE User/fadccore.vhd
+set_global_assignment -name VHDL_FILE User/ChBufManPeakMark.vhd
+set_global_assignment -name VHDL_FILE User/ChBufManPeak.vhd
+set_global_assignment -name VHDL_FILE User/ADCReceiver.vhd
+set_global_assignment -name VHDL_FILE User/ChBufManZero.vhd
+set_global_assignment -name VHDL_FILE User/EventBuffer.vhd
+set_global_assignment -name VHDL_FILE User/ChBufMan.vhd
+set_global_assignment -name VHDL_FILE User/UserLibrary.vhd
+set_global_assignment -name VHDL_FILE User/TriggerController.vhd
+set_global_assignment -name VHDL_FILE User/ReadOutController.vhd
+set_global_assignment -name VHDL_FILE User/LocalTrigger.vhd
+set_global_assignment -name VHDL_FILE User/L1_Delay.vhd
+set_global_assignment -name VHDL_FILE User/EventBufferManager.vhd
+set_global_assignment -name VHDL_FILE User/BusController.vhd
+set_global_assignment -name VHDL_FILE User/ASC_Command.vhd
+set_global_assignment -name VHDL_FILE User/ADC_SerialController.vhd
+set_global_assignment -name VHDL_FILE User/TMP_Controller.vhd
+set_global_assignment -name VHDL_FILE fadc1440_top.vhd
+set_global_assignment -name QIP_FILE IP/clkgen.qip
+set_global_assignment -name QIP_FILE IP/desconv.qip
+set_global_assignment -name QIP_FILE IP/chbuf.qip
+set_global_assignment -name QIP_FILE IP/l1_buffer.qip
+set_global_assignment -name QIP_FILE IP/iobidir.qip
+set_global_assignment -name QIP_FILE IP/clkcnt.qip
+set_global_assignment -name QIP_FILE IP/mux14_16.qip
+set_global_assignment -name QIP_FILE IP/mux32_16.qip
+set_global_assignment -name QIP_FILE IP/swclkgen.qip
+set_global_assignment -name QIP_FILE IP/iobidir0.qip
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

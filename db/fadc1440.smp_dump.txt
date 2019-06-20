@@ -1,0 +1,1135 @@
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRouterControlRegister:routerControlRegister|iBusState
+Name iBusState.busStateWait1 iBusState.busStateWait0 iBusState.busStateWrite1 iBusState.busStateWrite0 iBusState.busStateRead1 iBusState.busStateRead0 iBusState.busStateIdle 
+iBusState.busStateIdle 0 0 0 0 0 0 0 
+iBusState.busStateRead0 0 0 0 0 0 1 1 
+iBusState.busStateRead1 0 0 0 0 1 0 1 
+iBusState.busStateWrite0 0 0 0 1 0 0 1 
+iBusState.busStateWrite1 0 0 1 0 0 0 1 
+iBusState.busStateWait0 0 1 0 0 0 0 1 
+iBusState.busStateWait1 1 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRouterControlRegister:routerControlRegister|SpaceWireRouterIPRouterRoutingTable32x256:routerRoutingTable|iBusState
+Name iBusState.busStateWait3 iBusState.busStateWait2 iBusState.busStateWait1 iBusState.busStateWait0 iBusState.busStateRead1 iBusState.busStateRead0 iBusState.busStateWrite2 iBusState.busStateWrite1 iBusState.busStateWrite0 iBusState.busStateIdle 
+iBusState.busStateIdle 0 0 0 0 0 0 0 0 0 0 
+iBusState.busStateWrite0 0 0 0 0 0 0 0 0 1 1 
+iBusState.busStateWrite1 0 0 0 0 0 0 0 1 0 1 
+iBusState.busStateWrite2 0 0 0 0 0 0 1 0 0 1 
+iBusState.busStateRead0 0 0 0 0 0 1 0 0 0 1 
+iBusState.busStateRead1 0 0 0 0 1 0 0 0 0 1 
+iBusState.busStateWait0 0 0 0 1 0 0 0 0 0 1 
+iBusState.busStateWait1 0 0 1 0 0 0 0 0 0 1 
+iBusState.busStateWait2 0 1 0 0 0 0 0 0 0 1 
+iBusState.busStateWait3 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port03|busState
+Name busState.busStateDummy2 busState.busStateDummy1 busState.busStateDummy0 busState.busStateData3 busState.busStateData2 busState.busStateData1 busState.busStateData0 busState.busStateRoutingTable2 busState.busStateRoutingTable1 busState.busStateRoutingTable0 busState.busStatedestination2 busState.busStatedestination1 busState.busStatedestination0 busState.busStateIdle 
+busState.busStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+busState.busStatedestination0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+busState.busStatedestination1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+busState.busStatedestination2 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+busState.busStateRoutingTable0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+busState.busStateRoutingTable1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+busState.busStateRoutingTable2 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+busState.busStateData0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+busState.busStateData1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+busState.busStateData2 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+busState.busStateData3 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy2 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port03|SpaceWireRouterIPTimeOutEEP:watchdogTimerTimeOutEEP|eepState
+Name eepState.eepStateStrobe1 eepState.eepStateStrobe0 eepState.eepStateReadyWait eepState.eepStateIdle 
+eepState.eepStateIdle 0 0 0 0 
+eepState.eepStateReadyWait 0 0 1 1 
+eepState.eepStateStrobe0 0 1 0 1 
+eepState.eepStateStrobe1 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port03|SpaceWireCODECIP:SpaceWireCODEC|transmitterWriteState
+Name transmitterWriteState.transmitterWriteStateReset2 transmitterWriteState.transmitterWriteStateReset1 transmitterWriteState.transmitterWriteStateReset0 transmitterWriteState.transmitterWriteStateWrite1 transmitterWriteState.transmitterWriteStateWrite0 transmitterWriteState.transmitterWriteStateIdle 
+transmitterWriteState.transmitterWriteStateIdle 0 0 0 0 0 0 
+transmitterWriteState.transmitterWriteStateWrite0 0 0 0 0 1 1 
+transmitterWriteState.transmitterWriteStateWrite1 0 0 0 1 0 1 
+transmitterWriteState.transmitterWriteStateReset0 0 0 1 0 0 1 
+transmitterWriteState.transmitterWriteStateReset1 0 1 0 0 0 1 
+transmitterWriteState.transmitterWriteStateReset2 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port03|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPStateMachine:spaceWireStateMachine|linkState
+Name linkState.linkStateRun linkState.linkStateConnecting linkState.linkStateStarted linkState.linkStateReady linkState.linkStateErrorWait linkState.linkStateErrorReset 
+linkState.linkStateErrorReset 0 0 0 0 0 0 
+linkState.linkStateErrorWait 0 0 0 0 1 1 
+linkState.linkStateReady 0 0 0 1 0 1 
+linkState.linkStateStarted 0 0 1 0 0 1 
+linkState.linkStateConnecting 0 1 0 0 0 1 
+linkState.linkStateRun 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port03|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPTransmitter:spaceWireTransmitter|transmitState
+Name transmitState.transmitStateData transmitState.transmitStateControl transmitState.transmitStateParity transmitState.transmitStateStop 
+transmitState.transmitStateStop 0 0 0 0 
+transmitState.transmitStateParity 0 0 1 1 
+transmitState.transmitStateControl 0 1 0 1 
+transmitState.transmitStateData 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port03|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPReceiverSynchronize:spaceWireReceiver|spaceWireState
+Name spaceWireState.spaceWireWaitOdd spaceWireState.spaceWireOdd1 spaceWireState.spaceWireOdd0 spaceWireState.spaceWireWaitEven spaceWireState.spaceWireEven1 spaceWireState.spaceWireEven0 spaceWireState.spaceWireOff spaceWireState.spaceWireIdel 
+spaceWireState.spaceWireIdel 0 0 0 0 0 0 0 0 
+spaceWireState.spaceWireOff 0 0 0 0 0 0 1 1 
+spaceWireState.spaceWireEven0 0 0 0 0 0 1 0 1 
+spaceWireState.spaceWireEven1 0 0 0 0 1 0 0 1 
+spaceWireState.spaceWireWaitEven 0 0 0 1 0 0 0 1 
+spaceWireState.spaceWireOdd0 0 0 1 0 0 0 0 1 
+spaceWireState.spaceWireOdd1 0 1 0 0 0 0 0 1 
+spaceWireState.spaceWireWaitOdd 1 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port02|busState
+Name busState.busStateDummy2 busState.busStateDummy1 busState.busStateDummy0 busState.busStateData3 busState.busStateData2 busState.busStateData1 busState.busStateData0 busState.busStateRoutingTable2 busState.busStateRoutingTable1 busState.busStateRoutingTable0 busState.busStatedestination2 busState.busStatedestination1 busState.busStatedestination0 busState.busStateIdle 
+busState.busStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+busState.busStatedestination0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+busState.busStatedestination1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+busState.busStatedestination2 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+busState.busStateRoutingTable0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+busState.busStateRoutingTable1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+busState.busStateRoutingTable2 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+busState.busStateData0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+busState.busStateData1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+busState.busStateData2 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+busState.busStateData3 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy2 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port02|SpaceWireRouterIPTimeOutEEP:watchdogTimerTimeOutEEP|eepState
+Name eepState.eepStateStrobe1 eepState.eepStateStrobe0 eepState.eepStateReadyWait eepState.eepStateIdle 
+eepState.eepStateIdle 0 0 0 0 
+eepState.eepStateReadyWait 0 0 1 1 
+eepState.eepStateStrobe0 0 1 0 1 
+eepState.eepStateStrobe1 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port02|SpaceWireCODECIP:SpaceWireCODEC|transmitterWriteState
+Name transmitterWriteState.transmitterWriteStateReset2 transmitterWriteState.transmitterWriteStateReset1 transmitterWriteState.transmitterWriteStateReset0 transmitterWriteState.transmitterWriteStateWrite1 transmitterWriteState.transmitterWriteStateWrite0 transmitterWriteState.transmitterWriteStateIdle 
+transmitterWriteState.transmitterWriteStateIdle 0 0 0 0 0 0 
+transmitterWriteState.transmitterWriteStateWrite0 0 0 0 0 1 1 
+transmitterWriteState.transmitterWriteStateWrite1 0 0 0 1 0 1 
+transmitterWriteState.transmitterWriteStateReset0 0 0 1 0 0 1 
+transmitterWriteState.transmitterWriteStateReset1 0 1 0 0 0 1 
+transmitterWriteState.transmitterWriteStateReset2 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port02|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPStateMachine:spaceWireStateMachine|linkState
+Name linkState.linkStateRun linkState.linkStateConnecting linkState.linkStateStarted linkState.linkStateReady linkState.linkStateErrorWait linkState.linkStateErrorReset 
+linkState.linkStateErrorReset 0 0 0 0 0 0 
+linkState.linkStateErrorWait 0 0 0 0 1 1 
+linkState.linkStateReady 0 0 0 1 0 1 
+linkState.linkStateStarted 0 0 1 0 0 1 
+linkState.linkStateConnecting 0 1 0 0 0 1 
+linkState.linkStateRun 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port02|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPTransmitter:spaceWireTransmitter|transmitState
+Name transmitState.transmitStateData transmitState.transmitStateControl transmitState.transmitStateParity transmitState.transmitStateStop 
+transmitState.transmitStateStop 0 0 0 0 
+transmitState.transmitStateParity 0 0 1 1 
+transmitState.transmitStateControl 0 1 0 1 
+transmitState.transmitStateData 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port02|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPReceiverSynchronize:spaceWireReceiver|spaceWireState
+Name spaceWireState.spaceWireWaitOdd spaceWireState.spaceWireOdd1 spaceWireState.spaceWireOdd0 spaceWireState.spaceWireWaitEven spaceWireState.spaceWireEven1 spaceWireState.spaceWireEven0 spaceWireState.spaceWireOff spaceWireState.spaceWireIdel 
+spaceWireState.spaceWireIdel 0 0 0 0 0 0 0 0 
+spaceWireState.spaceWireOff 0 0 0 0 0 0 1 1 
+spaceWireState.spaceWireEven0 0 0 0 0 0 1 0 1 
+spaceWireState.spaceWireEven1 0 0 0 0 1 0 0 1 
+spaceWireState.spaceWireWaitEven 0 0 0 1 0 0 0 1 
+spaceWireState.spaceWireOdd0 0 0 1 0 0 0 0 1 
+spaceWireState.spaceWireOdd1 0 1 0 0 0 0 0 1 
+spaceWireState.spaceWireWaitOdd 1 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port01|busState
+Name busState.busStateDummy2 busState.busStateDummy1 busState.busStateDummy0 busState.busStateData3 busState.busStateData2 busState.busStateData1 busState.busStateData0 busState.busStateRoutingTable2 busState.busStateRoutingTable1 busState.busStateRoutingTable0 busState.busStatedestination2 busState.busStatedestination1 busState.busStatedestination0 busState.busStateIdle 
+busState.busStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+busState.busStatedestination0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+busState.busStatedestination1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+busState.busStatedestination2 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+busState.busStateRoutingTable0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+busState.busStateRoutingTable1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+busState.busStateRoutingTable2 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+busState.busStateData0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+busState.busStateData1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+busState.busStateData2 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+busState.busStateData3 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+busState.busStateDummy2 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port01|SpaceWireRouterIPTimeOutEEP:watchdogTimerTimeOutEEP|eepState
+Name eepState.eepStateStrobe1 eepState.eepStateStrobe0 eepState.eepStateReadyWait eepState.eepStateIdle 
+eepState.eepStateIdle 0 0 0 0 
+eepState.eepStateReadyWait 0 0 1 1 
+eepState.eepStateStrobe0 0 1 0 1 
+eepState.eepStateStrobe1 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port01|SpaceWireCODECIP:SpaceWireCODEC|transmitterWriteState
+Name transmitterWriteState.transmitterWriteStateReset2 transmitterWriteState.transmitterWriteStateReset1 transmitterWriteState.transmitterWriteStateReset0 transmitterWriteState.transmitterWriteStateWrite1 transmitterWriteState.transmitterWriteStateWrite0 transmitterWriteState.transmitterWriteStateIdle 
+transmitterWriteState.transmitterWriteStateIdle 0 0 0 0 0 0 
+transmitterWriteState.transmitterWriteStateWrite0 0 0 0 0 1 1 
+transmitterWriteState.transmitterWriteStateWrite1 0 0 0 1 0 1 
+transmitterWriteState.transmitterWriteStateReset0 0 0 1 0 0 1 
+transmitterWriteState.transmitterWriteStateReset1 0 1 0 0 0 1 
+transmitterWriteState.transmitterWriteStateReset2 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port01|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPStateMachine:spaceWireStateMachine|linkState
+Name linkState.linkStateRun linkState.linkStateConnecting linkState.linkStateStarted linkState.linkStateReady linkState.linkStateErrorWait linkState.linkStateErrorReset 
+linkState.linkStateErrorReset 0 0 0 0 0 0 
+linkState.linkStateErrorWait 0 0 0 0 1 1 
+linkState.linkStateReady 0 0 0 1 0 1 
+linkState.linkStateStarted 0 0 1 0 0 1 
+linkState.linkStateConnecting 0 1 0 0 0 1 
+linkState.linkStateRun 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port01|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPTransmitter:spaceWireTransmitter|transmitState
+Name transmitState.transmitStateData transmitState.transmitStateControl transmitState.transmitStateParity transmitState.transmitStateStop 
+transmitState.transmitStateStop 0 0 0 0 
+transmitState.transmitStateParity 0 0 1 1 
+transmitState.transmitStateControl 0 1 0 1 
+transmitState.transmitStateData 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPSpaceWirePort:port01|SpaceWireCODECIP:SpaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPReceiverSynchronize:spaceWireReceiver|spaceWireState
+Name spaceWireState.spaceWireWaitOdd spaceWireState.spaceWireOdd1 spaceWireState.spaceWireOdd0 spaceWireState.spaceWireWaitEven spaceWireState.spaceWireEven1 spaceWireState.spaceWireEven0 spaceWireState.spaceWireOff spaceWireState.spaceWireIdel 
+spaceWireState.spaceWireIdel 0 0 0 0 0 0 0 0 
+spaceWireState.spaceWireOff 0 0 0 0 0 0 1 1 
+spaceWireState.spaceWireEven0 0 0 0 0 0 1 0 1 
+spaceWireState.spaceWireEven1 0 0 0 0 1 0 0 1 
+spaceWireState.spaceWireWaitEven 0 0 0 1 0 0 0 1 
+spaceWireState.spaceWireOdd0 0 0 1 0 0 0 0 1 
+spaceWireState.spaceWireOdd1 0 1 0 0 0 0 0 1 
+spaceWireState.spaceWireWaitOdd 1 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRMAPPort:port00|SpaceWireRouterIPRMAPDecoder:RMAPTargetDecoder|busState
+Name busState.busStateWrite0 busState.busStateRead1 busState.busStateRead0 busState.busStateIdle 
+busState.busStateIdle 0 0 0 0 
+busState.busStateRead0 0 0 1 1 
+busState.busStateRead1 0 1 0 1 
+busState.busStateWrite0 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRMAPPort:port00|SpaceWireRouterIPRMAPDecoder:RMAPTargetDecoder|replyState
+Name replyState.replyStateEOP replyState.replyStateDataCRC replyState.replyStateData replyState.replyStateHeaderCRC replyState.replyStateDataLength replyState.replyStateReservedByte replyState.replyStateTransactionID replyState.replyStateTargetLogicalAddress replyState.replyStateStatus replyState.replyStateInstruction replyState.replyStateProtocolID replyState.replyStateInitiatorLogicalAddress replyState.replyStatePathAddress replyState.replyStatePortRequest replyState.replyStateDestinationPort replyState.replyStateIdle 
+replyState.replyStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+replyState.replyStateDestinationPort 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+replyState.replyStatePortRequest 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+replyState.replyStatePathAddress 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+replyState.replyStateInitiatorLogicalAddress 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+replyState.replyStateProtocolID 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+replyState.replyStateInstruction 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+replyState.replyStateStatus 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+replyState.replyStateTargetLogicalAddress 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+replyState.replyStateTransactionID 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+replyState.replyStateReservedByte 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateDataLength 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateHeaderCRC 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateData 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateDataCRC 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateEOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRMAPPort:port00|SpaceWireRouterIPRMAPDecoder:RMAPTargetDecoder|transmitCRCState
+Name transmitCRCState.transmitCRCStateWrite2 transmitCRCState.transmitCRCStateWrite1 transmitCRCState.transmitCRCStateWrite0 transmitCRCState.transmitCRCStateIdle 
+transmitCRCState.transmitCRCStateIdle 0 0 0 0 
+transmitCRCState.transmitCRCStateWrite0 0 0 1 1 
+transmitCRCState.transmitCRCStateWrite1 0 1 0 1 
+transmitCRCState.transmitCRCStateWrite2 1 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRMAPPort:port00|SpaceWireRouterIPRMAPDecoder:RMAPTargetDecoder|receiveCRCState
+Name receiveCRCState.receiveCRCStateRead3 receiveCRCState.receiveCRCStateRead2 receiveCRCState.receiveCRCStateRead1 receiveCRCState.receiveCRCStateRead0 receiveCRCState.receiveCRCStateIdle 
+receiveCRCState.receiveCRCStateIdle 0 0 0 0 0 
+receiveCRCState.receiveCRCStateRead0 0 0 0 1 1 
+receiveCRCState.receiveCRCStateRead1 0 0 1 0 1 
+receiveCRCState.receiveCRCStateRead2 0 1 0 0 1 
+receiveCRCState.receiveCRCStateRead3 1 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRMAPPort:port00|SpaceWireRouterIPRMAPDecoder:RMAPTargetDecoder|commandState
+Name commandState.commandStateWaitEOP commandState.commandStateDataEnd commandState.commandStateDataCRC commandState.commandStateData commandState.commandStateHeaderCRC commandState.commandStateDataLength commandState.commandStateAddress commandState.commandStateExtendedAddress commandState.commandStateTransactionID commandState.commandStateReplyAddress commandState.commandStateStatus commandState.commandStateKey commandState.commandStateInstruction commandState.commandStateProtocolID commandState.commandStateIdle 
+commandState.commandStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+commandState.commandStateProtocolID 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+commandState.commandStateInstruction 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+commandState.commandStateKey 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+commandState.commandStateStatus 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+commandState.commandStateReplyAddress 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+commandState.commandStateTransactionID 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+commandState.commandStateExtendedAddress 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+commandState.commandStateAddress 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+commandState.commandStateDataLength 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+commandState.commandStateHeaderCRC 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateData 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateDataCRC 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateDataEnd 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateWaitEOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|SpaceWireRouterIP:RCORE|SpaceWireRouterIPRMAPPort:port00|SpaceWireRouterIPRMAPDecoder:RMAPTargetDecoder|SpaceWireRouterIPTimeOutEEP:watchdogTimerTimeOutEEP|eepState
+Name eepState.eepStateStrobe1 eepState.eepStateStrobe0 eepState.eepStateReadyWait eepState.eepStateIdle 
+eepState.eepStateIdle 0 0 0 0 
+eepState.eepStateReadyWait 0 0 1 1 
+eepState.eepStateStrobe0 0 1 0 1 
+eepState.eepStateStrobe1 1 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|TMPController:comTMP|ss_bus
+Name ss_bus.Done ss_bus.WaitTMP ss_bus.Read ss_bus.Write ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 1 1 
+ss_bus.Write 0 0 0 1 0 1 
+ss_bus.Read 0 0 1 0 0 1 
+ss_bus.WaitTMP 0 1 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|TMPController:comTMP|ss_next
+Name ss_next.Done ss_next.stop1 ss_next.stop0 ss_next.ackw3 ss_next.ackw2 ss_next.ackw1 ss_next.ackw0 ss_next.get3 ss_next.get2 ss_next.get1 ss_next.get0 ss_next.reg2 ss_next.reg1 ss_next.reg0 ss_next.ack2 ss_next.ack1 ss_next.ack0 ss_next.rw3 ss_next.rw2 ss_next.rw1 ss_next.rw0 ss_next.slave2 ss_next.slave1 ss_next.slave0 ss_next.start1 ss_next.start0 ss_next.r_step14 ss_next.r_step13 ss_next.r_step12 ss_next.r_step11 ss_next.r_step10 ss_next.r_step9 ss_next.r_step8 ss_next.r_step7 ss_next.r_step6 ss_next.r_step5 ss_next.r_step4 ss_next.r_step3 ss_next.r_step2 ss_next.r_step1 ss_next.r_step0 ss_next.w_step9 ss_next.w_step8 ss_next.w_step7 ss_next.w_step6 ss_next.w_step5 ss_next.w_step4 ss_next.w_step3 ss_next.w_step2 ss_next.w_step1 ss_next.w_step0 ss_next.Idle 
+ss_next.Idle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ss_next.w_step0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+ss_next.w_step1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+ss_next.w_step2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+ss_next.w_step3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+ss_next.w_step4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+ss_next.w_step5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+ss_next.w_step6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+ss_next.w_step7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+ss_next.w_step8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+ss_next.w_step9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.r_step14 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.start0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.start1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.slave0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.slave1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.slave2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.rw0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.rw1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.rw2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.rw3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.ack0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.ack1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.ack2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.reg1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.reg2 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.get0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.get1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.get2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.get3 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.ackw0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.ackw1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.ackw2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.ackw3 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.stop0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.stop1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_next.Done 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|TMPController:comTMP|ss_rw
+Name ss_rw.Done ss_rw.stop1 ss_rw.stop0 ss_rw.ackw3 ss_rw.ackw2 ss_rw.ackw1 ss_rw.ackw0 ss_rw.get3 ss_rw.get2 ss_rw.get1 ss_rw.get0 ss_rw.reg2 ss_rw.reg1 ss_rw.reg0 ss_rw.ack2 ss_rw.ack1 ss_rw.ack0 ss_rw.rw3 ss_rw.rw2 ss_rw.rw1 ss_rw.rw0 ss_rw.slave2 ss_rw.slave1 ss_rw.slave0 ss_rw.start1 ss_rw.start0 ss_rw.r_step14 ss_rw.r_step13 ss_rw.r_step12 ss_rw.r_step11 ss_rw.r_step10 ss_rw.r_step9 ss_rw.r_step8 ss_rw.r_step7 ss_rw.r_step6 ss_rw.r_step5 ss_rw.r_step4 ss_rw.r_step3 ss_rw.r_step2 ss_rw.r_step1 ss_rw.r_step0 ss_rw.w_step9 ss_rw.w_step8 ss_rw.w_step7 ss_rw.w_step6 ss_rw.w_step5 ss_rw.w_step4 ss_rw.w_step3 ss_rw.w_step2 ss_rw.w_step1 ss_rw.w_step0 ss_rw.Idle 
+ss_rw.Idle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ss_rw.w_step0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+ss_rw.w_step1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+ss_rw.w_step2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+ss_rw.w_step3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+ss_rw.w_step4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+ss_rw.w_step5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+ss_rw.w_step6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+ss_rw.w_step7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+ss_rw.w_step8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+ss_rw.w_step9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.r_step14 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.start0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.start1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.slave0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.slave1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.slave2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.rw0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.rw1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.rw2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.rw3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.ack0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.ack1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.ack2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.reg1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.reg2 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.get0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.get1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.get2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.get3 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.ackw0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.ackw1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.ackw2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.ackw3 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.stop0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.stop1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+ss_rw.Done 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|ADCController:comASC|ss_bus
+Name ss_bus.Done ss_bus.Read ss_bus.SyncGo ss_bus.WaitASC ss_bus.Write ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 0 1 1 
+ss_bus.Write 0 0 0 0 1 0 1 
+ss_bus.WaitASC 0 0 0 1 0 0 1 
+ss_bus.SyncGo 0 0 1 0 0 0 1 
+ss_bus.Read 0 1 0 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|ADCController:comASC|ss
+Name ss.ss_done ss.ss_waitupdate ss.ss_update ss.ss_comwait ss.ss_command ss.ss_chsel4 ss.ss_chsel3 ss.ss_chsel2 ss.ss_chsel1 ss.ss_wait ss.ss_idle ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 0 0 0 0 0 0 
+ss.ss_idle 0 0 0 0 0 0 0 0 0 0 1 1 
+ss.ss_wait 0 0 0 0 0 0 0 0 0 1 0 1 
+ss.ss_chsel1 0 0 0 0 0 0 0 0 1 0 0 1 
+ss.ss_chsel2 0 0 0 0 0 0 0 1 0 0 0 1 
+ss.ss_chsel3 0 0 0 0 0 0 1 0 0 0 0 1 
+ss.ss_chsel4 0 0 0 0 0 1 0 0 0 0 0 1 
+ss.ss_command 0 0 0 0 1 0 0 0 0 0 0 1 
+ss.ss_comwait 0 0 0 1 0 0 0 0 0 0 0 1 
+ss.ss_update 0 0 1 0 0 0 0 0 0 0 0 1 
+ss.ss_waitupdate 0 1 0 0 0 0 0 0 0 0 0 1 
+ss.ss_done 1 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|ADCController:comASC|ASC_Command:ComIssue|ss
+Name ss.ss_final ss.ss_read2 ss.ss_read1 ss.ss_write2 ss.ss_write1 ss.ss_command2 ss.ss_command1 ss.ss_start ss.ss_idle ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 0 0 0 0 
+ss.ss_idle 0 0 0 0 0 0 0 0 1 1 
+ss.ss_start 0 0 0 0 0 0 0 1 0 1 
+ss.ss_command1 0 0 0 0 0 0 1 0 0 1 
+ss.ss_command2 0 0 0 0 0 1 0 0 0 1 
+ss.ss_write1 0 0 0 0 1 0 0 0 0 1 
+ss.ss_write2 0 0 0 1 0 0 0 0 0 1 
+ss.ss_read1 0 0 1 0 0 0 0 0 0 1 
+ss.ss_read2 0 1 0 0 0 0 0 0 0 1 
+ss.ss_final 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|ss_bus
+Name ss_bus.AckDone ss_bus.Done ss_bus.WaitLocalDone ss_bus.Connect ss_bus.SetBus ss_bus.GetDest ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 0 0 1 1 
+ss_bus.GetDest 0 0 0 0 0 1 0 1 
+ss_bus.SetBus 0 0 0 0 1 0 0 1 
+ss_bus.Connect 0 0 0 1 0 0 0 1 
+ss_bus.WaitLocalDone 0 0 1 0 0 0 0 1 
+ss_bus.Done 0 1 0 0 0 0 0 1 
+ss_bus.AckDone 1 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|RMAPTargetIPDMAController:RMAPDMAController|dmaState
+Name dmaState.dmaStateReadModifyWriteWrite3 dmaState.dmaStateReadModifyWriteWrite2 dmaState.dmaStateReadModifyWriteWrite1 dmaState.dmaStateReadModifyWriteWrite0 dmaState.dmaStateReadModifyWriteControl2 dmaState.dmaStateReadModifyWriteControl1 dmaState.dmaStateReadModifyWriteControl0 dmaState.dmaStateRead4 dmaState.dmaStateRead3 dmaState.dmaStateRead2 dmaState.dmaStateRead1 dmaState.dmaStateRead0 dmaState.dmaStateWrite5 dmaState.dmaStateWrite4 dmaState.dmaStateWrite3 dmaState.dmaStateWrite2 dmaState.dmaStateWrite1 dmaState.dmaStateWrite0 dmaState.dmaStateIdle 
+dmaState.dmaStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+dmaState.dmaStateWrite0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+dmaState.dmaStateWrite1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+dmaState.dmaStateWrite2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+dmaState.dmaStateWrite3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+dmaState.dmaStateWrite4 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+dmaState.dmaStateWrite5 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+dmaState.dmaStateRead0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+dmaState.dmaStateRead1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+dmaState.dmaStateRead2 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateRead3 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateRead4 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateReadModifyWriteControl0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateReadModifyWriteControl1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateReadModifyWriteControl2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateReadModifyWriteWrite0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateReadModifyWriteWrite1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateReadModifyWriteWrite2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dmaState.dmaStateReadModifyWriteWrite3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|RMAPTargetIPDecoder:RMAPDecoder|replyState
+Name replyState.replyStateEOP replyState.replyStateDataCRC replyState.replyStateData replyState.replyStateDataWait replyState.replyStateHeaderCRC replyState.replyStateDataLength replyState.replyStateReservedByte replyState.replyStateTransactionID replyState.replyStateTargetLogicalAddress replyState.replyStateStatus replyState.replyStateInstruction replyState.replyStateProtocolID replyState.replyStateInitiatorLogicalAddress replyState.replyStatePathAddress replyState.replyStateIdle 
+replyState.replyStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+replyState.replyStatePathAddress 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+replyState.replyStateInitiatorLogicalAddress 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+replyState.replyStateProtocolID 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+replyState.replyStateInstruction 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+replyState.replyStateStatus 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+replyState.replyStateTargetLogicalAddress 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+replyState.replyStateTransactionID 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+replyState.replyStateReservedByte 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+replyState.replyStateDataLength 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+replyState.replyStateHeaderCRC 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateDataWait 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateData 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateDataCRC 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+replyState.replyStateEOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|RMAPTargetIPDecoder:RMAPDecoder|transmitFIFOState
+Name transmitFIFOState.transmitFIFOStateWrite2 transmitFIFOState.transmitFIFOStateWrite1 transmitFIFOState.transmitFIFOStateWrite0 transmitFIFOState.transmitFIFOStateIdle 
+transmitFIFOState.transmitFIFOStateIdle 0 0 0 0 
+transmitFIFOState.transmitFIFOStateWrite0 0 0 1 1 
+transmitFIFOState.transmitFIFOStateWrite1 0 1 0 1 
+transmitFIFOState.transmitFIFOStateWrite2 1 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|RMAPTargetIPDecoder:RMAPDecoder|receiveFIFOState
+Name receiveFIFOState.receiveFIFOStateRead4 receiveFIFOState.receiveFIFOStateRead3 receiveFIFOState.receiveFIFOStateRead2 receiveFIFOState.receiveFIFOStateRead1 receiveFIFOState.receiveFIFOStateRead0 receiveFIFOState.receiveFIFOStateIdle 
+receiveFIFOState.receiveFIFOStateIdle 0 0 0 0 0 0 
+receiveFIFOState.receiveFIFOStateRead0 0 0 0 0 1 1 
+receiveFIFOState.receiveFIFOStateRead1 0 0 0 1 0 1 
+receiveFIFOState.receiveFIFOStateRead2 0 0 1 0 0 1 
+receiveFIFOState.receiveFIFOStateRead3 0 1 0 0 0 1 
+receiveFIFOState.receiveFIFOStateRead4 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|RMAPTargetIPDecoder:RMAPDecoder|commandState
+Name commandState.commandStateWaitBusAccessEnd commandState.commandStateWaitEOP commandState.commandStateDataEOP commandState.commandStateDataCRC commandState.commandStateData commandState.commandStateHeaderCRC commandState.commandStateDataLength commandState.commandStateAddress commandState.commandStateExtendedAddress commandState.commandStateTransactionID commandState.commandStateInitiatorLogicalAddress commandState.commandStateReplyAddress commandState.commandStateKey commandState.commandStateInstruction commandState.commandStateProtocolID commandState.commandStateTargetLogicalAddress commandState.commandStateIdle 
+commandState.commandStateIdle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+commandState.commandStateTargetLogicalAddress 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+commandState.commandStateProtocolID 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+commandState.commandStateInstruction 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+commandState.commandStateKey 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+commandState.commandStateReplyAddress 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+commandState.commandStateInitiatorLogicalAddress 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+commandState.commandStateTransactionID 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+commandState.commandStateExtendedAddress 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+commandState.commandStateAddress 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+commandState.commandStateDataLength 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateHeaderCRC 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateData 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateDataCRC 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateDataEOP 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateWaitEOP 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+commandState.commandStateWaitBusAccessEnd 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|RMAPTargetIPDecoder:RMAPDecoder|replyStateOut
+Name replyStateOut.replyStateEOP~reg0 replyStateOut.replyStateDataCRC~reg0 replyStateOut.replyStateData~reg0 replyStateOut.replyStateDataWait~reg0 replyStateOut.replyStateHeaderCRC~reg0 replyStateOut.replyStateDataLength~reg0 replyStateOut.replyStateReservedByte~reg0 replyStateOut.replyStateTransactionID~reg0 replyStateOut.replyStateTargetLogicalAddress~reg0 replyStateOut.replyStateStatus~reg0 replyStateOut.replyStateInstruction~reg0 replyStateOut.replyStateProtocolID~reg0 replyStateOut.replyStateInitiatorLogicalAddress~reg0 replyStateOut.replyStatePathAddress~reg0 replyStateOut.replyStateIdle~reg0 
+replyStateOut.replyStateIdle~reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+replyStateOut.replyStatePathAddress~reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+replyStateOut.replyStateInitiatorLogicalAddress~reg0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+replyStateOut.replyStateProtocolID~reg0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+replyStateOut.replyStateInstruction~reg0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+replyStateOut.replyStateStatus~reg0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+replyStateOut.replyStateTargetLogicalAddress~reg0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+replyStateOut.replyStateTransactionID~reg0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+replyStateOut.replyStateReservedByte~reg0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+replyStateOut.replyStateDataLength~reg0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+replyStateOut.replyStateHeaderCRC~reg0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+replyStateOut.replyStateDataWait~reg0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+replyStateOut.replyStateData~reg0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+replyStateOut.replyStateDataCRC~reg0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+replyStateOut.replyStateEOP~reg0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|RMAPTargetIPDecoder:RMAPDecoder|commandStateOut
+Name commandStateOut.commandStateWaitBusAccessEnd~reg0 commandStateOut.commandStateWaitEOP~reg0 commandStateOut.commandStateDataEOP~reg0 commandStateOut.commandStateDataCRC~reg0 commandStateOut.commandStateData~reg0 commandStateOut.commandStateHeaderCRC~reg0 commandStateOut.commandStateDataLength~reg0 commandStateOut.commandStateAddress~reg0 commandStateOut.commandStateExtendedAddress~reg0 commandStateOut.commandStateTransactionID~reg0 commandStateOut.commandStateInitiatorLogicalAddress~reg0 commandStateOut.commandStateReplyAddress~reg0 commandStateOut.commandStateKey~reg0 commandStateOut.commandStateInstruction~reg0 commandStateOut.commandStateProtocolID~reg0 commandStateOut.commandStateTargetLogicalAddress~reg0 commandStateOut.commandStateIdle~reg0 
+commandStateOut.commandStateIdle~reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+commandStateOut.commandStateTargetLogicalAddress~reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+commandStateOut.commandStateProtocolID~reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+commandStateOut.commandStateInstruction~reg0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+commandStateOut.commandStateKey~reg0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+commandStateOut.commandStateReplyAddress~reg0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+commandStateOut.commandStateInitiatorLogicalAddress~reg0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+commandStateOut.commandStateTransactionID~reg0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+commandStateOut.commandStateExtendedAddress~reg0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateAddress~reg0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateDataLength~reg0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateHeaderCRC~reg0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateData~reg0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateDataCRC~reg0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateDataEOP~reg0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateWaitEOP~reg0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+commandStateOut.commandStateWaitBusAccessEnd~reg0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|SpaceWireCODECIP:spaceWireCODEC|transmitterWriteState
+Name transmitterWriteState.transmitterWriteStateReset2 transmitterWriteState.transmitterWriteStateReset1 transmitterWriteState.transmitterWriteStateReset0 transmitterWriteState.transmitterWriteStateWrite1 transmitterWriteState.transmitterWriteStateWrite0 transmitterWriteState.transmitterWriteStateIdle 
+transmitterWriteState.transmitterWriteStateIdle 0 0 0 0 0 0 
+transmitterWriteState.transmitterWriteStateWrite0 0 0 0 0 1 1 
+transmitterWriteState.transmitterWriteStateWrite1 0 0 0 1 0 1 
+transmitterWriteState.transmitterWriteStateReset0 0 0 1 0 0 1 
+transmitterWriteState.transmitterWriteStateReset1 0 1 0 0 0 1 
+transmitterWriteState.transmitterWriteStateReset2 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|SpaceWireCODECIP:spaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPStateMachine:spaceWireStateMachine|linkState
+Name linkState.linkStateRun linkState.linkStateConnecting linkState.linkStateStarted linkState.linkStateReady linkState.linkStateErrorWait linkState.linkStateErrorReset 
+linkState.linkStateErrorReset 0 0 0 0 0 0 
+linkState.linkStateErrorWait 0 0 0 0 1 1 
+linkState.linkStateReady 0 0 0 1 0 1 
+linkState.linkStateStarted 0 0 1 0 0 1 
+linkState.linkStateConnecting 0 1 0 0 0 1 
+linkState.linkStateRun 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|SpaceWireCODECIP:spaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPTransmitter:spaceWireTransmitter|transmitState
+Name transmitState.transmitStateData transmitState.transmitStateControl transmitState.transmitStateParity transmitState.transmitStateStop 
+transmitState.transmitStateStop 0 0 0 0 
+transmitState.transmitStateParity 0 0 1 1 
+transmitState.transmitStateControl 0 1 0 1 
+transmitState.transmitStateData 1 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|BusController:comBCT|RMAPTargetIP:RMAPIP|SpaceWireCODECIP:spaceWireCODEC|SpaceWireCODECIPLinkInterface:SpaceWireLinkInterface|SpaceWireCODECIPReceiverSynchronize:spaceWireReceiver|spaceWireState
+Name spaceWireState.spaceWireWaitOdd spaceWireState.spaceWireOdd1 spaceWireState.spaceWireOdd0 spaceWireState.spaceWireWaitEven spaceWireState.spaceWireEven1 spaceWireState.spaceWireEven0 spaceWireState.spaceWireOff spaceWireState.spaceWireIdel 
+spaceWireState.spaceWireIdel 0 0 0 0 0 0 0 0 
+spaceWireState.spaceWireOff 0 0 0 0 0 0 1 1 
+spaceWireState.spaceWireEven0 0 0 0 0 0 1 0 1 
+spaceWireState.spaceWireEven1 0 0 0 0 1 0 0 1 
+spaceWireState.spaceWireWaitEven 0 0 0 1 0 0 0 1 
+spaceWireState.spaceWireOdd0 0 0 1 0 0 0 0 1 
+spaceWireState.spaceWireOdd1 0 1 0 0 0 0 0 1 
+spaceWireState.spaceWireWaitOdd 1 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|ss_bus
+Name ss_bus.Done ss_bus.RdyWait ss_bus.Read ss_bus.Write ss_bus.SetBus ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 0 1 1 
+ss_bus.SetBus 0 0 0 0 1 0 1 
+ss_bus.Write 0 0 0 1 0 0 1 
+ss_bus.Read 0 0 1 0 0 0 1 
+ss_bus.RdyWait 0 1 0 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ss_bus
+Name ss_bus.Done ss_bus.FRead ss_bus.Read ss_bus.Write ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 1 1 
+ss_bus.Write 0 0 0 1 0 1 
+ss_bus.Read 0 0 1 0 0 1 
+ss_bus.FRead 0 1 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ss
+Name ss.ss_calctot3 ss.ss_calctot2 ss.ss_calctot1 ss.ss_calctot0 ss.ss_padding ss.ss_wait ss.ss_ready ss.ss_record ss.ss_count ss.ss_free ss.ss_ini 
+ss.ss_ini 0 0 0 0 0 0 0 0 0 0 0 
+ss.ss_free 0 0 0 0 0 0 0 0 0 1 1 
+ss.ss_count 0 0 0 0 0 0 0 0 1 0 1 
+ss.ss_record 0 0 0 0 0 0 0 1 0 0 1 
+ss.ss_ready 0 0 0 0 0 0 1 0 0 0 1 
+ss.ss_wait 0 0 0 0 0 1 0 0 0 0 1 
+ss.ss_padding 0 0 0 0 1 0 0 0 0 0 1 
+ss.ss_calctot0 0 0 0 1 0 0 0 0 0 0 1 
+ss.ss_calctot1 0 0 1 0 0 0 0 0 0 0 1 
+ss.ss_calctot2 0 1 0 0 0 0 0 0 0 0 1 
+ss.ss_calctot3 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:15:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:14:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:13:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:12:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:11:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:10:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:9:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:8:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:7:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:6:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:5:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:4:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:3:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:2:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:1:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:2:comEBM|ChBufManPeakMark:\ChBufGen0:0:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ss_bus
+Name ss_bus.Done ss_bus.FRead ss_bus.Read ss_bus.Write ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 1 1 
+ss_bus.Write 0 0 0 1 0 1 
+ss_bus.Read 0 0 1 0 0 1 
+ss_bus.FRead 0 1 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ss
+Name ss.ss_calctot3 ss.ss_calctot2 ss.ss_calctot1 ss.ss_calctot0 ss.ss_padding ss.ss_wait ss.ss_ready ss.ss_record ss.ss_count ss.ss_free ss.ss_ini 
+ss.ss_ini 0 0 0 0 0 0 0 0 0 0 0 
+ss.ss_free 0 0 0 0 0 0 0 0 0 1 1 
+ss.ss_count 0 0 0 0 0 0 0 0 1 0 1 
+ss.ss_record 0 0 0 0 0 0 0 1 0 0 1 
+ss.ss_ready 0 0 0 0 0 0 1 0 0 0 1 
+ss.ss_wait 0 0 0 0 0 1 0 0 0 0 1 
+ss.ss_padding 0 0 0 0 1 0 0 0 0 0 1 
+ss.ss_calctot0 0 0 0 1 0 0 0 0 0 0 1 
+ss.ss_calctot1 0 0 1 0 0 0 0 0 0 0 1 
+ss.ss_calctot2 0 1 0 0 0 0 0 0 0 0 1 
+ss.ss_calctot3 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:15:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:14:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:13:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:12:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:11:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:10:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:9:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:8:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:7:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:6:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:5:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:4:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:3:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:2:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:1:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:1:comEBM|ChBufManPeakMark:\ChBufGen0:0:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ss_bus
+Name ss_bus.Done ss_bus.FRead ss_bus.Read ss_bus.Write ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 1 1 
+ss_bus.Write 0 0 0 1 0 1 
+ss_bus.Read 0 0 1 0 0 1 
+ss_bus.FRead 0 1 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ss
+Name ss.ss_calctot3 ss.ss_calctot2 ss.ss_calctot1 ss.ss_calctot0 ss.ss_padding ss.ss_wait ss.ss_ready ss.ss_record ss.ss_count ss.ss_free ss.ss_ini 
+ss.ss_ini 0 0 0 0 0 0 0 0 0 0 0 
+ss.ss_free 0 0 0 0 0 0 0 0 0 1 1 
+ss.ss_count 0 0 0 0 0 0 0 0 1 0 1 
+ss.ss_record 0 0 0 0 0 0 0 1 0 0 1 
+ss.ss_ready 0 0 0 0 0 0 1 0 0 0 1 
+ss.ss_wait 0 0 0 0 0 1 0 0 0 0 1 
+ss.ss_padding 0 0 0 0 1 0 0 0 0 0 1 
+ss.ss_calctot0 0 0 0 1 0 0 0 0 0 0 1 
+ss.ss_calctot1 0 0 1 0 0 0 0 0 0 0 1 
+ss.ss_calctot2 0 1 0 0 0 0 0 0 0 0 1 
+ss.ss_calctot3 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:15:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:14:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:13:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:12:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:11:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:10:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:9:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:8:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:7:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:6:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:5:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:4:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:3:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:2:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:1:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|EventBuffer:comEBMintf|EventBufferManager:\EBMgen:0:comEBM|ChBufManPeakMark:\ChBufGen0:0:CM0|ss
+Name ss.ss_wait ss.ss_header3 ss.ss_header2 ss.ss_record ss.ss_header ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_header 0 0 0 0 1 1 
+ss.ss_record 0 0 0 1 0 1 
+ss.ss_header2 0 0 1 0 0 1 
+ss.ss_header3 0 1 0 0 0 1 
+ss.ss_wait 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|ReadOutController:comROC|ss_bus
+Name ss_bus.Done ss_bus.Wait1 ss_bus.Wait0 ss_bus.Read ss_bus.Write ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 0 1 1 
+ss_bus.Write 0 0 0 0 1 0 1 
+ss_bus.Read 0 0 0 1 0 0 1 
+ss_bus.Wait0 0 0 1 0 0 0 1 
+ss_bus.Wait1 0 1 0 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|TriggerController:comTGC|ss_bus
+Name ss_bus.Done ss_bus.Read ss_bus.Write ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 
+ss_bus.Idle 0 0 0 1 1 
+ss_bus.Write 0 0 1 0 1 
+ss_bus.Read 0 1 0 0 1 
+ss_bus.Done 1 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|TriggerController:comTGC|ss
+Name ss.ss_done ss.ss_start ss.ss_free ss.ss_wait ss.ss_idle ss.ss_init 
+ss.ss_init 0 0 0 0 0 0 
+ss.ss_idle 0 0 0 0 1 1 
+ss.ss_wait 0 0 0 1 0 1 
+ss.ss_free 0 0 1 0 0 1 
+ss.ss_start 0 1 0 0 0 1 
+ss.ss_done 1 0 0 0 0 1 
+
+State Machine - |fadc1440_top|fadccore:ACORE|L1_Delay:comL1D|ss_bus
+Name ss_bus.Done ss_bus.Read ss_bus.Write ss_bus.Wait2 ss_bus.Wait1 ss_bus.Idle ss_bus.Initialize 
+ss_bus.Initialize 0 0 0 0 0 0 0 
+ss_bus.Idle 0 0 0 0 0 1 1 
+ss_bus.Wait1 0 0 0 0 1 0 1 
+ss_bus.Wait2 0 0 0 1 0 0 1 
+ss_bus.Write 0 0 1 0 0 0 1 
+ss_bus.Read 0 1 0 0 0 0 1 
+ss_bus.Done 1 0 0 0 0 0 1 

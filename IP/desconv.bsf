@@ -1,0 +1,72 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 0 0 240 112)
+	(text "desconv" (rect 90 1 145 17)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 96 25 108)(font "Arial" ))
+	(port
+		(pt 0 48)
+		(input)
+		(text "pll_areset" (rect 0 0 55 14)(font "Arial" (font_size 8)))
+		(text "pll_areset" (rect 4 32 58 47)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 80 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "rx_in[7..0]" (rect 0 0 56 14)(font "Arial" (font_size 8)))
+		(text "rx_in[7..0]" (rect 4 48 60 63)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 80 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "rx_inclock" (rect 0 0 57 14)(font "Arial" (font_size 8)))
+		(text "rx_inclock" (rect 4 64 61 79)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 80 80))
+	)
+	(port
+		(pt 240 48)
+		(output)
+		(text "rx_out[111..0]" (rect 0 0 76 14)(font "Arial" (font_size 8)))
+		(text "rx_out[111..0]" (rect 157 32 233 47)(font "Arial" (font_size 8)))
+		(line (pt 240 48)(pt 144 48)(line_width 3))
+	)
+	(port
+		(pt 240 64)
+		(output)
+		(text "rx_outclock" (rect 0 0 66 14)(font "Arial" (font_size 8)))
+		(text "rx_outclock" (rect 170 48 235 63)(font "Arial" (font_size 8)))
+		(line (pt 240 64)(pt 144 64))
+	)
+	(drawing
+		(line (pt 80 32)(pt 144 32))
+		(line (pt 144 32)(pt 144 96))
+		(line (pt 80 96)(pt 144 96))
+		(line (pt 80 32)(pt 80 96))
+		(line (pt 0 0)(pt 240 0))
+		(line (pt 240 0)(pt 240 112))
+		(line (pt 0 112)(pt 240 112))
+		(line (pt 0 0)(pt 0 112))
+	)
+)

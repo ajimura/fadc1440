@@ -1,0 +1,85 @@
+IP Upgrade report for fadc1440_top
+Tue Jun 11 22:24:27 2019
+Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------------------------------------+
+; IP Upgrade Summary                                                             ;
++------------------------------+-------------------------------------------------+
+; IP Components Upgrade Status ; Passed - Tue Jun 11 22:24:27 2019               ;
+; Quartus Prime Version        ; 18.1.1 Build 646 04/11/2019 SJ Standard Edition ;
+; Revision Name                ; fadc1440_top                                    ;
+; Top-level Entity Name        ; fadc1440_top                                    ;
+; Family                       ; Cyclone IV E                                    ;
++------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                              ;
++-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
+; Entity Name ; Component Name ; Version ; Original Source File ; Generation File Path ; New Source File ; Message ;
++-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
+; clkgen      ; ALTPLL         ; 17.1    ; IP/clkgen.qip        ; IP/clkgen.vhd        ; IP/clkgen.qip   ;         ;
+; desconv     ; ALTLVDS_RX     ; 17.1    ; IP/desconv.qip       ; IP/desconv.vhd       ; IP/desconv.qip  ;         ;
+; iobidir     ; ALTIOBUF       ; 17.1    ; IP/iobidir.qip       ; IP/iobidir.vhd       ; IP/iobidir.qip  ;         ;
+; swclkgen    ; ALTPLL         ; 17.1    ; IP/swclkgen.qip      ; IP/swclkgen.vhd      ; IP/swclkgen.qip ;         ;
+; iobidir0    ; ALTIOBUF       ; 17.1    ; IP/iobidir0.qip      ; IP/iobidir0.vhd      ; IP/iobidir0.qip ;         ;
++-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "IP/clkgen.vhd" to "IP/clkgen.BAK.vhd"
+Info (11837): Started upgrading IP component ALTPLL with file "IP/clkgen.vhd"
+Info (11902): Backing up file "IP/desconv.vhd" to "IP/desconv.BAK.vhd"
+Info (11837): Started upgrading IP component ALTLVDS_RX with file "IP/desconv.vhd"
+Info (11902): Backing up file "IP/iobidir.vhd" to "IP/iobidir.BAK.vhd"
+Info (11837): Started upgrading IP component ALTIOBUF with file "IP/iobidir.vhd"
+Info (11902): Backing up file "IP/swclkgen.vhd" to "IP/swclkgen.BAK.vhd"
+Info (11837): Started upgrading IP component ALTPLL with file "IP/swclkgen.vhd"
+Info (11902): Backing up file "IP/iobidir0.vhd" to "IP/iobidir0.BAK.vhd"
+Info (11837): Started upgrading IP component ALTIOBUF with file "IP/iobidir0.vhd"
+Info (11131): Completed upgrading IP component ALTPLL with file "IP/clkgen.vhd"
+Info (11131): Completed upgrading IP component ALTLVDS_RX with file "IP/desconv.vhd"
+Info (11131): Completed upgrading IP component ALTIOBUF with file "IP/iobidir.vhd"
+Info (11131): Completed upgrading IP component ALTPLL with file "IP/swclkgen.vhd"
+Info (11131): Completed upgrading IP component ALTIOBUF with file "IP/iobidir0.vhd"
+Info (23030): Evaluation of Tcl script c:/intelfpga/18.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 765 megabytes
+    Info: Processing ended: Tue Jun 11 22:24:27 2019
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:22
+
+

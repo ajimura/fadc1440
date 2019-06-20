@@ -1,0 +1,173 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "PDWN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PDWN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CSB[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CSB[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SCLK[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SCLK[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSout[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSout[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSout[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSout[3]",
+					"strict" : false
+				},
+				{
+					"name" : "TrigOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "TrigOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "TMP0",
+					"strict" : false
+				},
+				{
+					"name" : "LED",
+					"strict" : false
+				},
+				{
+					"name" : "SDIO[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SDIO[1]",
+					"strict" : false
+				},
+				{
+					"name" : "TMP1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "TrigIn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "TrigIn[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DINB[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DINA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "TrigIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "TrigIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSin[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSin[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSin[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LVDSin[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

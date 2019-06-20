@@ -1,0 +1,497 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.778
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.946
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 0.993
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 1.288
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 1.359
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 1.907
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.896
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.743
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 9.487
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 999.160
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.286
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.362
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.369
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.410
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 0.410
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 0.415
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.438
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 3.425
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.895
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 6.498
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 1.321
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.322
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 1.733
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DCOA'
+Slack : 1.090
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DCOB'
+Slack : 1.090
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.286
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.286
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 2.218
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 2.557
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.718
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 5.958
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.210
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 12.214
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 12.216
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FCOA'
+Slack : 12.459
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FCOB'
+Slack : 12.463
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'OSC'
+Slack : 49.887
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 499.720
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.895
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.040
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 1.248
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 1.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 1.542
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 2.241
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 3.676
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 5.205
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 9.860
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 999.251
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.286
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.321
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.360
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 0.360
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 0.372
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 3.665
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 5.495
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 6.776
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 1.199
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.200
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 1.573
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DCOA'
+Slack : 1.090
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DCOB'
+Slack : 1.090
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.286
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.286
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 2.218
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 2.601
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.721
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 5.948
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.192
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 12.218
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 12.218
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FCOA'
+Slack : 12.456
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FCOB'
+Slack : 12.463
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'OSC'
+Slack : 49.884
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 499.719
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.270
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.343
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 1.864
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 2.177
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 2.424
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 4.094
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 7.408
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 7.624
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 11.150
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 999.591
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.099
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.135
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 0.154
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 0.189
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 0.191
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 4.798
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 8.174
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 8.451
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.629
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.631
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 0.814
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DCOA'
+Slack : 1.288
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DCOB'
+Slack : 1.288
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.546
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[0]'
+Slack : 1.561
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 2.263
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 2.874
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.782
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 5.998
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.251
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSB|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 12.280
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ACORE|DRS|DRSA|ALTLVDS_RX_component|auto_generated|lvds_rx_pll|clk[1]'
+Slack : 12.281
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FCOB'
+Slack : 12.476
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FCOA'
+Slack : 12.479
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'OSC'
+Slack : 49.589
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CGEN|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 499.779
+TNS   : 0.000
+
+------------------------------------------------------------
