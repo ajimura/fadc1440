@@ -169,7 +169,8 @@ begin
               elsif ( LocalBusAddress(7 downto 2) = EBM_Thres(7 downto 2) ) then
                 thres(id) <= LocalBusDataIn(15 downto 0);
               elsif ( LocalBusAddress(7 downto 2) = EBM_CmpType(7 downto 2) ) then
-                cmptype(6 downto 0) <= LocalBusDataIn( 6 downto 0);
+                cmptype(3 downto 0) <= LocalBusDataIn( 3 downto 0);
+                cmptype(6 downto 5) <= LocalBusDataIn( 6 downto 5);
 --                cmptype(8 downto 5) <= LocalBusDataIn(11 downto 8);
               end if;
             else

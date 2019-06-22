@@ -63,8 +63,8 @@ architecture ChBufManPeakMark of ChBufManPeakMark is
   signal keepZ : std_logic_vector(2 downto 0) := "000";
   signal keepS : std_logic_vector(2 downto 0) := "000";
 
-  signal datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
-  signal datainA, datainB : std_logic_vector(13 downto 0);
+  signal datain, datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
+  signal datainA : std_logic_vector(13 downto 0);
 
 --  type ss_type is (ss_init, ss_idle, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
   type ss_type is (ss_init, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
