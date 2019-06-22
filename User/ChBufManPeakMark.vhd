@@ -12,13 +12,14 @@ entity ChBufManPeakMark is
     Clock : in std_logic;
     Reset : in std_logic;
     RstSoft : in std_logic;
-    datain : in std_logic_vector(13 downto 0);
+--    datain : in std_logic_vector(13 downto 0);
+    datainB : in std_logic_vector(13 downto 0);
     dataout : out std_logic_vector(31 downto 0);
     address : out std_logic_vector(9 downto 0);
     datasize : out std_logic_vector(10 downto 0);
     fullrange : in std_logic_vector(15 downto 0);
     threshold : in std_logic_vector(15 downto 0);
-    cmptype : in std_logic_vector(4 downto 0);
+    cmptype : in std_logic_vector(6 downto 0);
     wren : out std_logic;
     byteena : out std_logic_vector(3 downto 0);
     start : in std_logic;
@@ -26,6 +27,15 @@ entity ChBufManPeakMark is
     ack : out std_logic
 );
 end ChBufManPeakMark;
+
+-- cmptype
+--  6: peak (& pre2/pos2 & pre3/port3)
+--  5: peak (& pre2/pos2)
+--  4: simple SUP
+--  3: peak
+--  2: dip
+--  1: mark
+--  0: zero
 
 architecture ChBufManPeakMark of ChBufManPeakMark is
 
@@ -39,16 +49,22 @@ architecture ChBufManPeakMark of ChBufManPeakMark is
   -- "10": time stamp
   -- "11": buffer end
 
-  signal up,  dn,  eq : std_logic;
+  signal up,  dn,  eq  : std_logic;
   signal up0, dn0, eq0 : std_logic;
 
+  signal preDiff1, posDiff1 : std_logic;
+  signal preDiff2, posDiff2 : std_logic;
+
   signal keepP : std_logic_vector(2 downto 0) := "000";
+  signal keepQ : std_logic_vector(2 downto 0) := "000";
+  signal keepR : std_logic_vector(2 downto 0) := "000";
   signal keepM : std_logic_vector(2 downto 0) := "000";
   signal keepD : std_logic_vector(2 downto 0) := "000";
   signal keepZ : std_logic_vector(2 downto 0) := "000";
   signal keepS : std_logic_vector(2 downto 0) := "000";
 
   signal datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
+  signal datainA, datainB : std_logic_vector(13 downto 0);
 
 --  type ss_type is (ss_init, ss_idle, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
   type ss_type is (ss_init, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
@@ -65,6 +81,8 @@ begin
   process (Clock)
   begin
     if (Clock'event and Clock='1') then
+      datainA <= datainB;
+      datain  <= datainA;
       datain0 <= datain;
       datain1 <= datain0;
       datain2 <= datain1;
@@ -83,9 +101,27 @@ begin
       else
         up<='0'; dn<='1'; eq<='0';
       end if;
+
       up0 <= up;
       dn0 <= dn;
       eq0 <= eq;
+
+      if (datainB < datain0) then posDiff2 <= '1';
+      else                        posDiff2 <= '0';
+      end if;
+
+      if (datainA < datain0) then posDiff1 <= '1';
+      else                        posDiff1 <= '0';
+      end if;
+
+      if (datain2 < datain0) then preDiff1 <= '1';
+      else                        preDiff1 <= '0';
+      end if;
+
+      if (datain3 < datain0) then preDiff2 <= '1';
+      else                        preDiff2 <= '0';
+      end if;
+
     end if;
   end process;
 
@@ -103,6 +139,46 @@ begin
         end if;
       else
         if (keepP > 0) then keepP <= keepP - 1; end if;
+      end if;
+    end if;
+  end process;
+
+  -- check peak (&pre2/pos2)
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0)) then
+        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
+          if (preDiff1='1' and posDiff1='1') then
+            if (cmptype(5)='1') then
+              keepQ <= "100";
+            end if;
+          end if;
+        else
+          if (keepQ > 0) then keepQ <= keepQ - 1; end if;
+        end if;
+      else
+        if (keepQ > 0) then keepQ <= keepQ - 1; end if;
+      end if;
+    end if;
+  end process;
+
+  -- check peak (&pre2/pos2 &pre3/pos3)
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0)) then
+        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
+          if (preDiff1='1' and posDiff1='1' and preDiff2='1' and posDiff2='1') then
+            if (cmptype(6)='1') then
+              keepR <= "100";
+            end if;
+          end if;
+        else
+          if (keepR > 0) then keepR <= keepR - 1; end if;
+        end if;
+      else
+        if (keepR > 0) then keepR <= keepR - 1; end if;
       end if;
     end if;
   end process;
@@ -221,6 +297,8 @@ begin
             ss <= ss_header2;
           else
             if (keepP(2 downto 1)/="00" or
+                keepQ(2 downto 1)/="00" or
+                keepR(2 downto 1)/="00" or
                 keepM(2 downto 1)/="00" or
                 keepD(2 downto 1)/="00" or
                 keepZ(2 downto 1)/="00" or
@@ -230,6 +308,8 @@ begin
               size4header <= size4header + 1;
               outdata <= "00" & datain3;
             elsif (keepP(0)='1' or
+                   keepQ(0)='1' or
+                   keepR(0)='1' or
                    keepM(0)='1' or
                    keepD(0)='1' or
                    keepZ(0)='1' or
