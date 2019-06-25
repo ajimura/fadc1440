@@ -293,7 +293,8 @@ begin
             wrpointer <= wrpointer + 1;
             size4header <= size4header + 1;
             wren <= '1';
-            outdata <= "11" & "000" & wrpointer;
+--            outdata <= "11" & "000" & wrpointer;
+            outdata <= "11" & timestamp(13 downto 0);
             ss <= ss_header2;
           else
             if (keepP(2 downto 1)/="00" or
