@@ -350,9 +350,9 @@ begin
   end process BusProcess;
   ------------------------------------------------------------- Bus Process --
 
-  process(Clock, Reset)
+  process(Clock, Reset, RstBCTS, RstBCTH)
   begin
-    if Reset='1' then
+    if ( Reset = '1' or RstBCTS='1' or RstBCTH='1') then
       ClkTrigCnt<=x"00000000";
     elsif Clock'event and Clock='1' then
       ClkTrigCnt<=ClkTrigCnt+1;
