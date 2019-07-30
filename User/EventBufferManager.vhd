@@ -19,8 +19,10 @@ entity EventBufferManager is
     ReadDone : in std_logic;
     ReadReady : out std_logic;
     FullRange : in std_logic_vector(15 downto 0);
-    CmpType : in std_logic_vector(6 downto 0);
+    CmpType : in std_logic_vector(8 downto 0);
     Thres : in ChArray16;
+    excessp : in std_logic_vector(7 donwto 0);
+    excessd : in std_logic_vector(7 donwto 0);
     LocalBusAddress : in std_logic_vector(31 downto 0);
     LocalBusDataIn : in std_logic_vector(31 downto 0);
     LocalBusdataout : out std_logic_vector(31 downto 0);
@@ -45,7 +47,9 @@ architecture EventBufferManager of EventBufferManager is
     datasize : out std_logic_vector(10 downto 0);
     threshold : in std_logic_vector(15 downto 0);
     fullrange : in std_logic_vector(15 downto 0);
-    cmptype : in std_logic_vector(6 downto 0);
+    cmptype : in std_logic_vector(8 downto 0);
+    excessp : in std_logic_vector(7 downto 0);
+    excessd : in std_logic_vector(7 downto 0);
     wren : out std_logic;
     byteena : out std_logic_vector(3 downto 0);
     start : in std_logic;
@@ -139,7 +143,9 @@ begin
       datasize => datasize(i),
       fullrange => FullRange,
       threshold => Thres(i),
-      cmptype => CmpType(6 downto 0),
+      cmptype => CmpType(8 downto 0),
+      excessp => excessp,
+      excessd => excessd,
       wren => wren(i),
       byteena => byteena(i),
       start => BufferStart,

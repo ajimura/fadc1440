@@ -19,7 +19,9 @@ entity ChBufManPeakMark is
     datasize : out std_logic_vector(10 downto 0);
     fullrange : in std_logic_vector(15 downto 0);
     threshold : in std_logic_vector(15 downto 0);
-    cmptype : in std_logic_vector(6 downto 0);
+    cmptype : in std_logic_vector(8 downto 0);
+    excessp : in std_logic_vector(7 downto 0);
+    excessd : in std_logic_vector(7 downto 0);
     wren : out std_logic;
     byteena : out std_logic_vector(3 downto 0);
     start : in std_logic;
@@ -29,6 +31,8 @@ entity ChBufManPeakMark is
 end ChBufManPeakMark;
 
 -- cmptype
+--  8: dip (& pre2/pos2 & pre3/port3)
+--  7: dip (& pre2/pos2)
 --  6: peak (& pre2/pos2 & pre3/port3)
 --  5: peak (& pre2/pos2)
 --  4: simple SUP
@@ -52,18 +56,24 @@ architecture ChBufManPeakMark of ChBufManPeakMark is
   signal up,  dn,  eq  : std_logic;
   signal up0, dn0, eq0 : std_logic;
 
-  signal preDiff1, posDiff1 : std_logic;
-  signal preDiff2, posDiff2 : std_logic;
+  signal preUDiff1, posUDiff1 : std_logic;
+  signal preUDiff2, posUDiff2 : std_logic;
+
+  signal preDDiff1, posDDiff1 : std_logic;
+  signal preDDiff2, posDDiff2 : std_logic;
 
   signal keepP : std_logic_vector(2 downto 0) := "000";
   signal keepQ : std_logic_vector(2 downto 0) := "000";
   signal keepR : std_logic_vector(2 downto 0) := "000";
   signal keepM : std_logic_vector(2 downto 0) := "000";
   signal keepD : std_logic_vector(2 downto 0) := "000";
+  signal keepE : std_logic_vector(2 downto 0) := "000";
+  signal keepF : std_logic_vector(2 downto 0) := "000";
   signal keepZ : std_logic_vector(2 downto 0) := "000";
   signal keepS : std_logic_vector(2 downto 0) := "000";
 
   signal datain, datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
+  signal datain0P, datain0M : std_logic_vector(13 downto 0);
   signal datainA : std_logic_vector(13 downto 0);
 
 --  type ss_type is (ss_init, ss_idle, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
@@ -84,6 +94,8 @@ begin
       datainA <= datainB;
       datain  <= datainA;
       datain0 <= datain;
+      datain0P <= datain + excessP;
+      datain0M <= datain - excessM;
       datain1 <= datain0;
       datain2 <= datain1;
       datain3 <= datain2;
@@ -106,21 +118,15 @@ begin
       dn0 <= dn;
       eq0 <= eq;
 
-      if (datainB < datain0) then posDiff2 <= '1';
-      else                        posDiff2 <= '0';
-      end if;
+      if (datainB < datain0P) then posUDiff2 <= '1'; else posUDiff2 <= '0'; end if;
+      if (datainA < datain0P) then posUDiff1 <= '1'; else posUDiff1 <= '0'; end if;
+      if (datain2 < datain0P) then preUDiff1 <= '1'; else preUDiff1 <= '0'; end if;
+      if (datain3 < datain0P) then preUDiff2 <= '1'; else preUDiff2 <= '0'; end if;
 
-      if (datainA < datain0) then posDiff1 <= '1';
-      else                        posDiff1 <= '0';
-      end if;
-
-      if (datain2 < datain0) then preDiff1 <= '1';
-      else                        preDiff1 <= '0';
-      end if;
-
-      if (datain3 < datain0) then preDiff2 <= '1';
-      else                        preDiff2 <= '0';
-      end if;
+      if (datainB > datain0M) then posDDiff2 <= '1'; else posDDiff2 <= '0'; end if;
+      if (datainA > datain0M) then posDDiff1 <= '1'; else posDDiff1 <= '0'; end if;
+      if (datain2 > datain0M) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
+      if (datain3 > datain0M) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
     end if;
   end process;
@@ -149,7 +155,7 @@ begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
         if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (preDiff1='1' and posDiff1='1') then
+          if (preUDiff1='1' and posUDiff1='1') then
             if (cmptype(5)='1') then
               keepQ <= "100";
             end if;
@@ -169,7 +175,7 @@ begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
         if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (preDiff1='1' and posDiff1='1' and preDiff2='1' and posDiff2='1') then
+          if (preUDiff1='1' and posUDiff1='1' and preUDiff2='1' and posUDiff2='1') then
             if (cmptype(6)='1') then
               keepR <= "100";
             end if;
@@ -197,6 +203,46 @@ begin
         end if;
       else
         if (keepD > 0) then keepD <= keepD - 1; end if;
+      end if;
+    end if;
+  end process;
+
+  -- check dip (&pre2/pos2)
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0)) then
+        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
+          if (preDDiff1='1' and posDDiff1='1') then
+            if (cmptype(7)='1') then
+              keepE <= "100";
+            end if;
+          end if;
+        else
+          if (keepE > 0) then keepE <= keepE - 1; end if;
+        end if;
+      else
+        if (keepE > 0) then keepE <= keepE - 1; end if;
+      end if;
+    end if;
+  end process;
+
+  -- check dip (&pre2/pos2 &pre3/pos3)
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0)) then
+        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
+          if (preDDiff1='1' and posDDiff1='1' and preDDiff2='1' and posDDiff2='1') then
+            if (cmptype(8)='1') then
+              keepF <= "100";
+            end if;
+          end if;
+        else
+          if (keepF > 0) then keepF <= keepF - 1; end if;
+        end if;
+      else
+        if (keepF > 0) then keepF <= keepF - 1; end if;
       end if;
     end if;
   end process;
@@ -302,6 +348,8 @@ begin
                 keepR(2 downto 1)/="00" or
                 keepM(2 downto 1)/="00" or
                 keepD(2 downto 1)/="00" or
+                keepE(2 downto 1)/="00" or
+                keepF(2 downto 1)/="00" or
                 keepZ(2 downto 1)/="00" or
                 keepS(2 downto 1)/="00") then         -- put data
               wren <= '1';
@@ -313,6 +361,8 @@ begin
                    keepR(0)='1' or
                    keepM(0)='1' or
                    keepD(0)='1' or
+                   keepE(0)='1' or
+                   keepF(0)='1' or
                    keepZ(0)='1' or
                    keepS(0)='1') then      -- put timestamp
               wren <= '1';

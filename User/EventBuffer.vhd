@@ -43,8 +43,10 @@ architecture EventBuffer of EventBuffer is
       ReadDone : in std_logic;
       ReadReady : out std_logic;
       FullRange : in std_logic_vector(15 downto 0);
-      CmpType : in std_logic_vector(6 downto 0);
+      CmpType : in std_logic_vector(8 downto 0);
       Thres : in ChArray16;
+      excessp : in std_logic_vector(7 downto 0);
+      excessd : in std_logic_vector(7 downto 0);
       LocalBusAddress : in std_logic_vector(31 downto 0);
       LocalBusDataIn : in std_logic_vector(31 downto 0);
       LocalBusDataOut : out std_logic_vector(31 downto 0);
@@ -69,11 +71,13 @@ architecture EventBuffer of EventBuffer is
 --        signal fullrange : std_logic_vector(15 downto 0):=x"0800";
   signal fullrange : std_logic_vector(15 downto 0):=x"0320";  -- 20 usec
 --  signal cmptype : std_logic_vector(9 downto 0) := "1000010000";
-  signal cmptype : std_logic_vector(6 downto 0) := "0010000";
+  signal cmptype : std_logic_vector(8 downto 0) := "0010000";
   signal thres : ChArray16 := (x"0000", x"0000", x"0000", x"0000", 
                                x"0000", x"0000", x"0000", x"0000",
                                x"0000", x"0000", x"0000", x"0000", 
                                x"0000", x"0000", x"0000", x"0000");
+  signal excessp : std_logic_vector(7 downto 0) := "00001010";
+  signal excessd : std_logic_vector(7 downto 0) := "00001010";
 
   type EBBusType is (
     Initialize,
@@ -103,6 +107,8 @@ begin
         FullRange => fullrange,
         CmpType => cmptype,
         Thres => thres,
+        excessp => excessp,
+        excessd => excessd,
         LocalBusAddress => LocalBusAddress,
         LocalBusDataIn => LocalBusDataIn,
         LocalBusDataOut => BusDataOut(i),
@@ -112,7 +118,7 @@ begin
         );
   end generate EBMgen;
 	
-  cmptype(4) <= '1' when cmptype(3 downto 0)="0000" and cmptype(6 downto 5)="00" else '0';
+  cmptype(4) <= '1' when cmptype(3 downto 0)="0000" and cmptype(8 downto 5)="0000" else '0';
 --  cmptype(9) <= '1' when cmptype(8 downto 5)="0000" else '0';
 
   CurBuf <= CONV_INTEGER(LocalBusAddress(21 downto 20));
@@ -170,8 +176,12 @@ begin
                 thres(id) <= LocalBusDataIn(15 downto 0);
               elsif ( LocalBusAddress(7 downto 2) = EBM_CmpType(7 downto 2) ) then
                 cmptype(3 downto 0) <= LocalBusDataIn( 3 downto 0);
-                cmptype(6 downto 5) <= LocalBusDataIn( 6 downto 5);
+                cmptype(8 downto 5) <= LocalBusDataIn( 6 downto 5);
 --                cmptype(8 downto 5) <= LocalBusDataIn(11 downto 8);
+              elsif ( LocalBusAddress(7 downto 2) = EBM_ExcessP(7 downto 2) ) then
+                excessp(7 downto 0) <= LocalBusDataIn( 7 downto 0);
+              elsif ( LocalBusAddress(7 downto 2) = EBM_ExcessD(7 downto 2) ) then
+                excessd(7 downto 0) <= LocalBusDataIn( 7 downto 0);
               end if;
             else
               if (LocalBusAddress(7 downto 2) = EBM_Range(7 downto 2)) then
@@ -179,8 +189,12 @@ begin
               elsif (LocalBusAddress(7 downto 2) = EBM_Thres(7 downto 2)) then
                 TmpDataOut(15 downto 0) <= thres(id);
               elsif (LocalBusAddress(7 downto 2) = EBM_CmpType(7 downto 2)) then
-                TmpDataOut(6 downto 0) <= cmptype(6 downto 0);
+                TmpDataOut(6 downto 0) <= cmptype(8 downto 0);
 --                TmpDataOut(12 downto 8) <= cmptype(9 downto 5);
+              elsif (LocalBusAddress(7 downto 2) = EBM_ExcessP(7 downto 2)) then
+                TmpDataOut(7 downto 0) <= excessp(7 downto 0);
+              elsif (LocalBusAddress(7 downto 2) = EBM_ExcessD(7 downto 2)) then
+                TmpDataOut(7 downto 0) <= excessd(7 downto 0);
               end if;
             end if;
             ss_bus <= Done;

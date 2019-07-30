@@ -58,6 +58,8 @@ package AddressMap is
   constant EBM_Range		: std_logic_vector(15 downto 0):= x"0080";
   constant EBM_Thres		: std_logic_vector(15 downto 0):= x"0084";
   constant EBM_CmpType		: std_logic_vector(15 downto 0):= x"0088";
+  constant EBM_ExcessP		: std_logic_vector(15 downto 0):= x"008C";
+  constant EBM_ExcessD		: std_logic_vector(15 downto 0):= x"0090";
   ---- General
   constant CMN_Version		: std_logic_vector(15 downto 0):= x"0000";
   constant CMN_HardRst		: std_logic_vector(15 downto 0):= x"0000";
