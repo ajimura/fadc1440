@@ -94,8 +94,8 @@ begin
       datainA <= datainB;
       datain  <= datainA;
       datain0 <= datain;
-      datain0P <= datain + excessp;
-      datain0M <= datain - excessd;
+      datain0P <= datain - excessp;
+      datain0M <= datain + excessd;
       datain1 <= datain0;
       datain2 <= datain1;
       datain3 <= datain2;
