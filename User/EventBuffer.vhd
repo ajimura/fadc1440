@@ -71,7 +71,7 @@ architecture EventBuffer of EventBuffer is
 --        signal fullrange : std_logic_vector(15 downto 0):=x"0800";
   signal fullrange : std_logic_vector(15 downto 0):=x"0320";  -- 20 usec
 --  signal cmptype : std_logic_vector(9 downto 0) := "1000010000";
-  signal cmptype : std_logic_vector(8 downto 0) := "0010000";
+  signal cmptype : std_logic_vector(8 downto 0) := "000010000";
   signal thres : ChArray16 := (x"0000", x"0000", x"0000", x"0000", 
                                x"0000", x"0000", x"0000", x"0000",
                                x"0000", x"0000", x"0000", x"0000", 
@@ -176,7 +176,7 @@ begin
                 thres(id) <= LocalBusDataIn(15 downto 0);
               elsif ( LocalBusAddress(7 downto 2) = EBM_CmpType(7 downto 2) ) then
                 cmptype(3 downto 0) <= LocalBusDataIn( 3 downto 0);
-                cmptype(8 downto 5) <= LocalBusDataIn( 6 downto 5);
+                cmptype(8 downto 5) <= LocalBusDataIn( 8 downto 5);
 --                cmptype(8 downto 5) <= LocalBusDataIn(11 downto 8);
               elsif ( LocalBusAddress(7 downto 2) = EBM_ExcessP(7 downto 2) ) then
                 excessp(7 downto 0) <= LocalBusDataIn( 7 downto 0);
@@ -189,7 +189,7 @@ begin
               elsif (LocalBusAddress(7 downto 2) = EBM_Thres(7 downto 2)) then
                 TmpDataOut(15 downto 0) <= thres(id);
               elsif (LocalBusAddress(7 downto 2) = EBM_CmpType(7 downto 2)) then
-                TmpDataOut(6 downto 0) <= cmptype(8 downto 0);
+                TmpDataOut(8 downto 0) <= cmptype(8 downto 0);
 --                TmpDataOut(12 downto 8) <= cmptype(9 downto 5);
               elsif (LocalBusAddress(7 downto 2) = EBM_ExcessP(7 downto 2)) then
                 TmpDataOut(7 downto 0) <= excessp(7 downto 0);

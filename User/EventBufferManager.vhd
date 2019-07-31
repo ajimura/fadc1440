@@ -21,8 +21,8 @@ entity EventBufferManager is
     FullRange : in std_logic_vector(15 downto 0);
     CmpType : in std_logic_vector(8 downto 0);
     Thres : in ChArray16;
-    excessp : in std_logic_vector(7 donwto 0);
-    excessd : in std_logic_vector(7 donwto 0);
+    excessp : in std_logic_vector(7 downto 0);
+    excessd : in std_logic_vector(7 downto 0);
     LocalBusAddress : in std_logic_vector(31 downto 0);
     LocalBusDataIn : in std_logic_vector(31 downto 0);
     LocalBusdataout : out std_logic_vector(31 downto 0);
