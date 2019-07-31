@@ -159,6 +159,8 @@ begin
             if (cmptype(5)='1') then
               keepQ <= "100";
             end if;
+          else
+            if (keepQ > 0) then keepQ <= keepQ - 1; end if;
           end if;
         else
           if (keepQ > 0) then keepQ <= keepQ - 1; end if;
@@ -179,6 +181,8 @@ begin
             if (cmptype(6)='1') then
               keepR <= "100";
             end if;
+          else
+            if (keepR > 0) then keepR <= keepR - 1; end if;
           end if;
         else
           if (keepR > 0) then keepR <= keepR - 1; end if;
@@ -217,6 +221,8 @@ begin
             if (cmptype(7)='1') then
               keepE <= "100";
             end if;
+          else
+            if (keepE > 0) then keepE <= keepE - 1; end if;
           end if;
         else
           if (keepE > 0) then keepE <= keepE - 1; end if;
@@ -237,6 +243,8 @@ begin
             if (cmptype(8)='1') then
               keepF <= "100";
             end if;
+          else
+            if (keepF > 0) then keepF <= keepF - 1; end if;
           end if;
         else
           if (keepF > 0) then keepF <= keepF - 1; end if;
