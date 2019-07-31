@@ -6,7 +6,7 @@ use work.AddressMap.all;
 use work.BusSignalTypes.all;
 use work.AddressBook.all;
 
-entity ChBufManPeakMark is
+entity ChBufManPeakMark2 is
   generic( ChID : std_logic_vector(3 downto 0) );
   port(
     Clock : in std_logic;
@@ -28,7 +28,7 @@ entity ChBufManPeakMark is
     req : in std_logic;
     ack : out std_logic
 );
-end ChBufManPeakMark;
+end ChBufManPeakMark2;
 
 -- cmptype
 --  8: dip (& pre2/pos2 & pre3/port3)
@@ -41,7 +41,7 @@ end ChBufManPeakMark;
 --  1: mark
 --  0: zero
 
-architecture ChBufManPeakMark of ChBufManPeakMark is
+architecture ChBufManPeakMark2 of ChBufManPeakMark2 is
 
   -- Signal Declarations -----------------------------------------------------
   signal wrpointer : std_logic_vector(10 downto 0);
@@ -150,7 +150,6 @@ begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
         if (peak_cand='1') then
---        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
           if (cmptype(3)='1') then
             keepP <= "100";
           end if;
@@ -168,15 +167,9 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (peak_cand='1') then
---        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (excessP5='1') then
---          if (preUDiff1='1' and posUDiff1='1') then
-            if (cmptype(5)='1') then
-              keepQ <= "100";
-            end if;
-          else
-            if (keepQ > 0) then keepQ <= keepQ - 1; end if;
+        if (peak_cand='1' and excessP5='1') then
+          if (cmptype(5)='1') then
+            keepQ <= "100";
           end if;
         else
           if (keepQ > 0) then keepQ <= keepQ - 1; end if;
@@ -192,15 +185,9 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (peak_cand='1') then
---        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (excessP7='1') then
---          if (preUDiff1='1' and posUDiff1='1' and preUDiff2='1' and posUDiff2='1') then
-            if (cmptype(6)='1') then
-              keepR <= "100";
-            end if;
-          else
-            if (keepR > 0) then keepR <= keepR - 1; end if;
+        if (peak_cand='1' and excessP7='1') then
+          if (cmptype(6)='1') then
+            keepR <= "100";
           end if;
         else
           if (keepR > 0) then keepR <= keepR - 1; end if;
@@ -217,7 +204,6 @@ begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
         if (dip_cand='1') then
---        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
           if (cmptype(2)='1') then
             keepD <= "100";
           end if;
@@ -235,15 +221,9 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (dip_cand='1') then
---        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
-          if (excessD5='1') then
---          if (preDDiff1='1' and posDDiff1='1') then
-            if (cmptype(7)='1') then
-              keepE <= "100";
-            end if;
-          else
-            if (keepE > 0) then keepE <= keepE - 1; end if;
+        if (dip_cand='1' and excessD5='1') then
+          if (cmptype(7)='1') then
+            keepE <= "100";
           end if;
         else
           if (keepE > 0) then keepE <= keepE - 1; end if;
@@ -259,15 +239,9 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (dip_cand='1') then
---        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
-          if (excessD7='1') then
---          if (preDDiff1='1' and posDDiff1='1' and preDDiff2='1' and posDDiff2='1') then
-            if (cmptype(8)='1') then
-              keepF <= "100";
-            end if;
-          else
-            if (keepF > 0) then keepF <= keepF - 1; end if;
+        if (dip_cand='1' and excessD7='1') then
+          if (cmptype(8)='1') then
+            keepF <= "100";
           end if;
         else
           if (keepF > 0) then keepF <= keepF - 1; end if;
@@ -344,16 +318,7 @@ begin
             timestamp <= (others=>'0');
             wrpointer <= "00000000100"; --(others=>'0');
             size4header <= (others => '0');
---            ack<='0';
           end if;
---          ss<=ss_idle;
-
---        when ss_idle =>
---          if (start='1') then
---            wren <= '1';
---            outdata <= x"40" & "000" & cmptype(4 downto 0);
---            ss<=ss_header;
---          end if;
 
 	when ss_header =>
           wrpointer <= wrpointer + 1;
@@ -432,4 +397,4 @@ begin
     end if;
   end process;
 
-end ChBufManPeakMark;
+end ChBufManPeakMark2;
