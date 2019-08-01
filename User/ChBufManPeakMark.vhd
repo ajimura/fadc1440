@@ -56,15 +56,11 @@ architecture ChBufManPeakMark of ChBufManPeakMark is
   signal up,  dn,  eq  : std_logic;
   signal up0, dn0, eq0 : std_logic;
 
-  signal peak_cand, dip_cand : std_logic;
-
   signal preUDiff1, posUDiff1 : std_logic;
   signal preUDiff2, posUDiff2 : std_logic;
-  signal excessP5, excessP7 : std_logic;
 
   signal preDDiff1, posDDiff1 : std_logic;
   signal preDDiff2, posDDiff2 : std_logic;
-  signal excessD5, excessD7 : std_logic;
 
   signal keepP : std_logic_vector(2 downto 0) := "000";
   signal keepQ : std_logic_vector(2 downto 0) := "000";
@@ -122,24 +118,15 @@ begin
       dn0 <= dn;
       eq0 <= eq;
 
-      peak_cand <= ((up0 and dn) or (eq0 and dn) or (up0 and eq));
-      dip_cand  <= ((dn0 and up) or (dn0 and eq) or (eq0 and up));
---      peak_cand <= ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1'));
---      dip_cand  <= ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1'));
-
       if (datainB < datain0P) then posUDiff2 <= '1'; else posUDiff2 <= '0'; end if;
       if (datainA < datain0P) then posUDiff1 <= '1'; else posUDiff1 <= '0'; end if;
       if (datain2 < datain0P) then preUDiff1 <= '1'; else preUDiff1 <= '0'; end if;
       if (datain3 < datain0P) then preUDiff2 <= '1'; else preUDiff2 <= '0'; end if;
-      excessP5 <= posUDiff1 and preUDiff1;
-      excessP7 <= posUDiff1 and preUDiff1 and posUDiff2 and preUDiff2;
 
       if (datainB > datain0M) then posDDiff2 <= '1'; else posDDiff2 <= '0'; end if;
       if (datainA > datain0M) then posDDiff1 <= '1'; else posDDiff1 <= '0'; end if;
       if (datain2 > datain0M) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
       if (datain3 > datain0M) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
-      excessD5 <= posDDiff1 and preDDiff1;
-      excessD7 <= posDDiff1 and preDDiff1 and posDDiff2 and preDDiff2;
 
     end if;
   end process;
@@ -149,8 +136,7 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (peak_cand='1') then
---        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
+        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
           if (cmptype(3)='1') then
             keepP <= "100";
           end if;
@@ -168,10 +154,8 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (peak_cand='1') then
---        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (excessP5='1') then
---          if (preUDiff1='1' and posUDiff1='1') then
+        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
+          if (preUDiff1='1' and posUDiff1='1') then
             if (cmptype(5)='1') then
               keepQ <= "100";
             end if;
@@ -192,10 +176,8 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (peak_cand='1') then
---        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (excessP7='1') then
---          if (preUDiff1='1' and posUDiff1='1' and preUDiff2='1' and posUDiff2='1') then
+        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
+          if (preUDiff1='1' and posUDiff1='1' and preUDiff2='1' and posUDiff2='1') then
             if (cmptype(6)='1') then
               keepR <= "100";
             end if;
@@ -216,8 +198,7 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (dip_cand='1') then
---        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
+        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
           if (cmptype(2)='1') then
             keepD <= "100";
           end if;
@@ -235,10 +216,8 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (dip_cand='1') then
---        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
-          if (excessD5='1') then
---          if (preDDiff1='1' and posDDiff1='1') then
+        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
+          if (preDDiff1='1' and posDDiff1='1') then
             if (cmptype(7)='1') then
               keepE <= "100";
             end if;
@@ -259,10 +238,8 @@ begin
   begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0)) then
-        if (dip_cand='1') then
---        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
-          if (excessD7='1') then
---          if (preDDiff1='1' and posDDiff1='1' and preDDiff2='1' and posDDiff2='1') then
+        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
+          if (preDDiff1='1' and posDDiff1='1' and preDDiff2='1' and posDDiff2='1') then
             if (cmptype(8)='1') then
               keepF <= "100";
             end if;
