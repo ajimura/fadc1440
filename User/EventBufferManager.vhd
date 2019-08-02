@@ -35,7 +35,8 @@ end EventBufferManager;
 architecture EventBufferManager of EventBufferManager is
 
   -- Component Declaration ---------------------------------------------------
-  component ChBufManPeakMark
+--  component ChBufManPeakMark
+  component ChBufManSmooth
   generic( ChID : std_logic_vector(3 downto 0) );
   port(
     Clock : in std_logic;

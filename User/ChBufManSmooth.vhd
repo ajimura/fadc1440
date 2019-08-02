@@ -135,7 +135,7 @@ begin
       if (datain2 > datain0M) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
       if (datain3 > datain0M) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
-      if ((Sum0<=Sum1) and (Sum1<=Sum2)) then SPeak<='1' else SPeak<='0';
+      if ((Sum0<Sum1) and (Sum1<Sum2)) then SPeak<='1'; else SPeak<='0'; end if;
     end if;
   end process;
 
@@ -365,7 +365,7 @@ begin
             if (ChID="0000") then
               outdata <= "00" & datain3;
             elsif (ChID="0001") then
-              outdata <=  Sum0;
+              outdata <=  "00" & Sum0(15 downto 2);
             elsif (ChID="0010") then
               outdata <= "000000000000000" & SPeak;
             else

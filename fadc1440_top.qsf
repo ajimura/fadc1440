@@ -235,6 +235,7 @@ set_location_assignment PIN_AA9 -to TrigOut[0]
 set_location_assignment PIN_AB9 -to "TrigOut[0](n)"
 set_location_assignment PIN_C20 -to TMP0
 set_location_assignment PIN_C21 -to TMP1
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name SDC_FILE fadc1440_top.sdc
 set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPTransmitter.vhdl"
 set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-master/VHDL/SpaceWireCODECIPTimer.vhdl"
@@ -276,6 +277,7 @@ set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterI
 set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIPArbiter7x7.vhdl"
 set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIP.vhdl"
 set_global_assignment -name VHDL_FILE User/fadccore.vhd
+set_global_assignment -name VHDL_FILE User/ChBufManSmooth.vhd
 set_global_assignment -name VHDL_FILE User/ChBufManPeakMark.vhd
 set_global_assignment -name VHDL_FILE User/ChBufManPeak.vhd
 set_global_assignment -name VHDL_FILE User/ADCReceiver.vhd
@@ -304,5 +306,4 @@ set_global_assignment -name QIP_FILE IP/mux32_16.qip
 set_global_assignment -name QIP_FILE IP/swclkgen.qip
 set_global_assignment -name QIP_FILE IP/iobidir0.qip
 set_global_assignment -name CDF_FILE output_files/Chain1.cdf
-set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
