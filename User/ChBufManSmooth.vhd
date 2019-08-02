@@ -119,7 +119,7 @@ begin
       Sum4_3 <= Sum4_2;
       Sum4_4 <= Sum4_3;
 
-      Sum8_0 <= ("00" & Sum4_0(15 downto 2)) + ("00" & Sum4_4(15 downto 2));
+      Sum8_0 <= ("0" & Sum4_0(15 downto 1)) + ("0" & Sum4_4(15 downto 1));
       Sum8_1 <= Sum8_0 - excessp;
       Sum8_2 <= Sum8_1 + excessp;
     end if;
