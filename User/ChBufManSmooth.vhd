@@ -113,15 +113,15 @@ begin
       datain2 <= datain1;
       datain3 <= datain2;
 
-      Sum4_0 <= ("00" & datain3) + ("00" & datain2) + ("00" & datain1) + ("00" & datain0);
+      Sum4_0 <= ("00" & datain0) + ("00" & datain ) + ("00" & datainA) + ("00" & datainB);
       Sum4_1 <= Sum4_0;
       Sum4_2 <= Sum4_1;
       Sum4_3 <= Sum4_2;
       Sum4_4 <= Sum4_3;
 
       Sum8_0 <= ("00" & Sum4_0(15 downto 2)) + ("00" & Sum4_4(15 downto 2));
-      Sum8_1 <= Sum8_0;
-      Sum8_2 <= Sum8_1;
+      Sum8_1 <= Sum8_0 - excessp;
+      Sum8_2 <= Sum8_1 + excessp;
     end if;
   end process;
   
