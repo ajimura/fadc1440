@@ -151,8 +151,8 @@ begin
       if (datain2 > datain0M) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
       if (datain3 > datain0M) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
-      if ((Sum4_0<Sum4_1) and (Sum4_1<Sum4_2)) then SPeak4<='1'; else SPeak4<='0'; end if;
-      if ((Sum8_0<Sum8_1) and (Sum8_1<Sum8_2)) then SPeak8<='1'; else SPeak8<='0'; end if;
+      if ((Sum4_0<Sum4_1) and (Sum4_1>Sum4_2)) then SPeak4<='1'; else SPeak4<='0'; end if;
+      if ((Sum8_0<Sum8_1) and (Sum8_1>Sum8_2)) then SPeak8<='1'; else SPeak8<='0'; end if;
     end if;
   end process;
 
