@@ -131,13 +131,15 @@ begin
   ReadReady <= '1' when ss=ss_ready else '0';
 
   ChBufGen0: for i in 0 to 15 generate
-    CM0: ChBufManPeakMark
+--    CM0: ChBufManPeakMark
+    CM0: ChBufManSmooth
     generic map (ChID => Conv_std_logic_vector(i,4))
     port map (
       Clock => Clock,
       Reset => Reset,
       RstSoft => (RstSoftS or RstSoftH),
-      datainB => DataIn((i)*14+13 downto (i)*14),
+--      datainB => DataIn((i)*14+13 downto (i)*14),
+      datainB => DataIn(13 downto 0),
       dataout => MemIn(i),
       address => wrpointer(i),
       datasize => datasize(i),
