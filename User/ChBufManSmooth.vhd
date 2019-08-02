@@ -75,10 +75,19 @@ architecture ChBufManSmooth of ChBufManSmooth is
   signal datain, datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
   signal datain0P, datain0M : std_logic_vector(13 downto 0);
   signal datainA : std_logic_vector(13 downto 0);
-  signal Sum0 : std_logic_vector(15 downto 0);
-  signal Sum1 : std_logic_vector(15 downto 0);
-  signal Sum2 : std_logic_vector(15 downto 0);
-  signal SPeak : std_logic;
+
+  signal Sum4_0 : std_logic_vector(15 downto 0);
+  signal Sum4_1 : std_logic_vector(15 downto 0);
+  signal Sum4_2 : std_logic_vector(15 downto 0);
+  signal Sum4_3 : std_logic_vector(15 downto 0);
+  signal Sum4_4 : std_logic_vector(15 downto 0);
+
+  signal Sum8_0 : std_logic_vector(15 downto 0);
+  signal Sum8_1 : std_logic_vector(15 downto 0);
+  signal Sum8_2 : std_logic_vector(15 downto 0);
+
+  signal SPeak4 : std_logic;
+  signal SPeak8 : std_logic;
 
 --  type ss_type is (ss_init, ss_idle, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
   type ss_type is (ss_init, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
@@ -103,9 +112,16 @@ begin
       datain1 <= datain0;
       datain2 <= datain1;
       datain3 <= datain2;
-      Sum0 <= ("00" & datain3) + ("00" & datain2) + ("00" & datain1) + ("00" & datain0);
-      Sum1 <= Sum0;
-      Sum2 <= Sum1;
+
+      Sum4_0 <= ("00" & datain3) + ("00" & datain2) + ("00" & datain1) + ("00" & datain0);
+      Sum4_1 <= Sum4_0;
+      Sum4_2 <= Sum4_1;
+      Sum4_3 <= Sum4_2;
+      Sum4_4 <= Sum4_3;
+
+      Sum8_0 <= ("00" & Sum4_0(15 downto 2)) + ("00" & Sum4_4(15 downto 2));
+      Sum8_1 <= Sum8_0;
+      Sum8_2 <= Sum8_1;
     end if;
   end process;
   
@@ -135,7 +151,8 @@ begin
       if (datain2 > datain0M) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
       if (datain3 > datain0M) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
-      if ((Sum0<Sum1) and (Sum1<Sum2)) then SPeak<='1'; else SPeak<='0'; end if;
+      if ((Sum4_0<Sum4_1) and (Sum4_1<Sum4_2)) then SPeak4<='1'; else SPeak4<='0'; end if;
+      if ((Sum8_0<Sum8_1) and (Sum8_1<Sum8_2)) then SPeak8<='1'; else SPeak8<='0'; end if;
     end if;
   end process;
 
@@ -365,9 +382,13 @@ begin
             if (ChID="0000") then
               outdata <= "00" & datain3;
             elsif (ChID="0001") then
-              outdata <=  "00" & Sum0(15 downto 2);
+              outdata <=  "00" & Sum4_0(15 downto 2);
             elsif (ChID="0010") then
-              outdata <= "000000000000000" & SPeak;
+              outdata <=  "00" & Sum8_0(15 downto 2);
+            elsif (ChID="0011") then
+              outdata <= "000000000000000" & SPeak4;
+            elsif (ChID="0100") then
+              outdata <= "000000000000000" & SPeak8;
             else
               outdata <= "00000" & keepR & "0" & keepQ & "0" & keepP;
             end if;
