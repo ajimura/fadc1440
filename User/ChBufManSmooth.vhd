@@ -13,7 +13,7 @@ entity ChBufManSmooth is
     Reset : in std_logic;
     RstSoft : in std_logic;
 --    datain : in std_logic_vector(13 downto 0);
-    datainB : in std_logic_vector(13 downto 0);
+    datainF : in std_logic_vector(13 downto 0);
     dataout : out std_logic_vector(31 downto 0);
     address : out std_logic_vector(9 downto 0);
     datasize : out std_logic_vector(10 downto 0);
@@ -74,6 +74,10 @@ architecture ChBufManSmooth of ChBufManSmooth is
 
   signal datain, datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
   signal datain0P, datain0M : std_logic_vector(13 downto 0);
+  signal datainE : std_logic_vector(13 downto 0);
+  signal datainD : std_logic_vector(13 downto 0);
+  signal datainC : std_logic_vector(13 downto 0);
+  signal datainB : std_logic_vector(13 downto 0);
   signal datainA : std_logic_vector(13 downto 0);
 
   signal Sum4_0 : std_logic_vector(15 downto 0);
@@ -104,6 +108,10 @@ begin
   process (Clock)
   begin
     if (Clock'event and Clock='1') then
+      datainE <= datainF;
+      datainD <= datainE;
+      datainC <= datainD;
+      datainB <= datainC;
       datainA <= datainB;
       datain  <= datainA;
       datain0 <= datain;
@@ -113,7 +121,7 @@ begin
       datain2 <= datain1;
       datain3 <= datain2;
 
-      Sum4_0 <= ("00" & datain0) + ("00" & datain ) + ("00" & datainA) + ("00" & datainB);
+      Sum4_0 <= ("00" & datainC) + ("00" & datainD) + ("00" & datainE) + ("00" & datainF);
       Sum4_1 <= Sum4_0;
       Sum4_2 <= Sum4_1;
       Sum4_3 <= Sum4_2;
