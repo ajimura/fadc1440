@@ -31,15 +31,15 @@ entity ChBufManSmooth is
 end ChBufManSmooth;
 
 -- cmptype
---  8: dip (& pre2/pos2 & pre3/port3)
+-- * 8: dip (& pre2/pos2 & pre3/port3)
 --  7: dip (& pre2/pos2)
---  6: peak (& pre2/pos2 & pre3/port3)
+-- * 6: peak (& pre2/pos2 & pre3/port3)
 --  5: peak (& pre2/pos2)
 --  4: simple SUP
 --  3: peak
 --  2: dip
---  1: mark
---  0: zero
+-- * 1: mark
+-- * 0: zero
 
 architecture ChBufManSmooth of ChBufManSmooth is
 
@@ -64,21 +64,21 @@ architecture ChBufManSmooth of ChBufManSmooth is
 
   signal keepP : std_logic_vector(2 downto 0) := "000";
   signal keepQ : std_logic_vector(2 downto 0) := "000";
-  signal keepR : std_logic_vector(2 downto 0) := "000";
-  signal keepM : std_logic_vector(2 downto 0) := "000";
+--  signal keepR : std_logic_vector(2 downto 0) := "000";
+--  signal keepM : std_logic_vector(2 downto 0) := "000";
   signal keepD : std_logic_vector(2 downto 0) := "000";
   signal keepE : std_logic_vector(2 downto 0) := "000";
-  signal keepF : std_logic_vector(2 downto 0) := "000";
-  signal keepZ : std_logic_vector(2 downto 0) := "000";
+--  signal keepF : std_logic_vector(2 downto 0) := "000";
+--  signal keepZ : std_logic_vector(2 downto 0) := "000";
   signal keepS : std_logic_vector(2 downto 0) := "000";
 
-  signal datain, datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
-  signal datain0P, datain0M : std_logic_vector(13 downto 0);
   signal datainE : std_logic_vector(13 downto 0);
   signal datainD : std_logic_vector(13 downto 0);
   signal datainC : std_logic_vector(13 downto 0);
   signal datainB : std_logic_vector(13 downto 0);
   signal datainA : std_logic_vector(13 downto 0);
+  signal datain0P, datain0M : std_logic_vector(13 downto 0);
+  signal datain, datain0, datain1, datain2, datain3 : std_logic_vector(13 downto 0);
 
   signal Sum4_0 : std_logic_vector(15 downto 0);
   signal Sum4_1 : std_logic_vector(15 downto 0);
@@ -86,12 +86,14 @@ architecture ChBufManSmooth of ChBufManSmooth is
   signal Sum4_3 : std_logic_vector(15 downto 0);
   signal Sum4_4 : std_logic_vector(15 downto 0);
 
-  signal Sum8_0 : std_logic_vector(15 downto 0);
-  signal Sum8_1 : std_logic_vector(15 downto 0);
-  signal Sum8_2 : std_logic_vector(15 downto 0);
+  signal Sum8_0 : std_logic_vector(16 downto 0);
+  signal Sum8_1 : std_logic_vector(16 downto 0);
+  signal Sum8_1M : std_logic_vector(16 downto 0);
+  signal Sum8_1P : std_logic_vector(16 downto 0);
+  signal Sum8_2 : std_logic_vector(16 downto 0);
 
-  signal SPeak4 : std_logic;
   signal SPeak8 : std_logic;
+  signal SDip8 : std_logic;
 
 --  type ss_type is (ss_init, ss_idle, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
   type ss_type is (ss_init, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
@@ -115,8 +117,8 @@ begin
       datainA <= datainB;
       datain  <= datainA;
       datain0 <= datain;
-      datain0P <= datain - excessp;
-      datain0M <= datain + excessd;
+      datain0M <= datain - excessp;
+      datain0P <= datain + excessd;
       datain1 <= datain0;
       datain2 <= datain1;
       datain3 <= datain2;
@@ -127,9 +129,11 @@ begin
       Sum4_3 <= Sum4_2;
       Sum4_4 <= Sum4_3;
 
-      Sum8_0 <= ("0" & Sum4_0(15 downto 1)) + ("0" & Sum4_4(15 downto 1));
+      Sum8_0 <= ("0" & Sum4_0) + ("0" & Sum4_4);
       Sum8_1 <= Sum8_0 - excessp;
-      Sum8_2 <= Sum8_1 + excessp;
+      Sum8_1M <= Sum8_0 - excessp;
+      Sum8_1P <= Sum8_0 + excessd;
+      Sum8_2 <= Sum8_1;
     end if;
   end process;
   
@@ -149,18 +153,28 @@ begin
       dn0 <= dn;
       eq0 <= eq;
 
-      if (datainB < datain0P) then posUDiff2 <= '1'; else posUDiff2 <= '0'; end if;
-      if (datainA < datain0P) then posUDiff1 <= '1'; else posUDiff1 <= '0'; end if;
-      if (datain2 < datain0P) then preUDiff1 <= '1'; else preUDiff1 <= '0'; end if;
-      if (datain3 < datain0P) then preUDiff2 <= '1'; else preUDiff2 <= '0'; end if;
+      if (datainB < datain0M) then posUDiff2 <= '1'; else posUDiff2 <= '0'; end if;
+      if (datainA < datain0M) then posUDiff1 <= '1'; else posUDiff1 <= '0'; end if;
+      if (datain2 < datain0M) then preUDiff1 <= '1'; else preUDiff1 <= '0'; end if;
+      if (datain3 < datain0M) then preUDiff2 <= '1'; else preUDiff2 <= '0'; end if;
 
-      if (datainB > datain0M) then posDDiff2 <= '1'; else posDDiff2 <= '0'; end if;
-      if (datainA > datain0M) then posDDiff1 <= '1'; else posDDiff1 <= '0'; end if;
-      if (datain2 > datain0M) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
-      if (datain3 > datain0M) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
+      if (datainB > datain0P) then posDDiff2 <= '1'; else posDDiff2 <= '0'; end if;
+      if (datainA > datain0P) then posDDiff1 <= '1'; else posDDiff1 <= '0'; end if;
+      if (datain2 > datain0P) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
+      if (datain3 > datain0P) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
-      if ((Sum4_0<Sum4_1) and (Sum4_1>Sum4_2)) then SPeak4<='1'; else SPeak4<='0'; end if;
-      if ((Sum8_0<Sum8_1) and (Sum8_1>Sum8_2)) then SPeak8<='1'; else SPeak8<='0'; end if;
+      if ((Sum8_0(16 downto 3)<=Sum8_1M(16 downto 3)) and
+          (Sum8_1M(16 downto 3)>=Sum8_2(16 downto 3))) then
+        SPeak8<='1';
+      else
+        SPeak8<='0';
+      end if;
+      if ((Sum8_0(16 downto 3)>=Sum8_1P(16 downto 3)) and
+          (Sum8_1P(16 downto 3)<=Sum8_2(16 downto 3))) then
+        SDip8<='1';
+      else
+        SDip8<='0';
+      end if;
     end if;
   end process;
 
@@ -200,28 +214,6 @@ begin
         end if;
       else
         if (keepQ > 0) then keepQ <= keepQ - 1; end if;
-      end if;
-    end if;
-  end process;
-
-  -- check peak (&pre2/pos2 &pre3/pos3)
-  process (Clock)
-  begin
-    if (Clock'event and Clock='1') then
-      if (datain2>threshold(13 downto 0)) then
-        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (preUDiff1='1' and posUDiff1='1' and preUDiff2='1' and posUDiff2='1') then
-            if (cmptype(6)='1') then
-              keepR <= "100";
-            end if;
-          else
-            if (keepR > 0) then keepR <= keepR - 1; end if;
-          end if;
-        else
-          if (keepR > 0) then keepR <= keepR - 1; end if;
-        end if;
-      else
-        if (keepR > 0) then keepR <= keepR - 1; end if;
       end if;
     end if;
   end process;
@@ -266,65 +258,6 @@ begin
     end if;
   end process;
 
-  -- check dip (&pre2/pos2 &pre3/pos3)
-  process (Clock)
-  begin
-    if (Clock'event and Clock='1') then
-      if (datain2>threshold(13 downto 0)) then
-        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
-          if (preDDiff1='1' and posDDiff1='1' and preDDiff2='1' and posDDiff2='1') then
-            if (cmptype(8)='1') then
-              keepF <= "100";
-            end if;
-          else
-            if (keepF > 0) then keepF <= keepF - 1; end if;
-          end if;
-        else
-          if (keepF > 0) then keepF <= keepF - 1; end if;
-        end if;
-      else
-        if (keepF > 0) then keepF <= keepF - 1; end if;
-      end if;
-    end if;
-  end process;
-
-  -- check mark
-  process (Clock)
-  begin
-    if (Clock'event and Clock='1') then
-      if ( (datain1(13 downto 12)/="00" and datain2(13 downto 12) ="00") or  -- <4096 -> >=4096
-           (datain1(13 downto 12) ="00" and datain2(13 downto 12)/="00") or  -- >=4096 -> <4096
-           (datain1(13)           ='1'  and datain2(13)           ='0' ) or  -- <8192 -> >=8192
-           (datain1(13)           ='0'  and datain2(13)           ='1' ) or  -- >=8192 -> <8192
-           (datain1(12)           ='0'  and datain2(13 downto 12) ="11") or  -- <12288 -> >=12288
-           (datain1(13 downto 12) ="11" and datain2(12)           ='0' ) ) then  -- >=12288 -> <12288
-        if (cmptype(1)='1') then
-          keepM <= "011";
-        end if;
-      else
-          if (keepM > 0) then keepM <= keepM - 1; end if;
-      end if;
-    end if;
-  end process;
---  keepM <= "000";
-
-  -- check zero
-  process (Clock)
-  begin
-    if (Clock'event and Clock='1') then
-      if ( (datain1>=threshold and datain2<threshold) or
-           (datain1<threshold and datain2>=threshold) or
-           (datain1>=threshold and datain2<threshold) or
-           (datain1<threshold and datain2>=threshold) ) then
-        if (cmptype(0)='1') then
-          keepZ <= "011";
-        end if;
-      else
-        if (keepZ > 0) then keepZ <= keepZ - 1; end if;
-      end if;
-    end if;
-  end process;
-
   -- check sup
   process (Clock)
   begin
@@ -354,16 +287,7 @@ begin
             timestamp <= (others=>'0');
             wrpointer <= "00000000100"; --(others=>'0');
             size4header <= (others => '0');
---            ack<='0';
           end if;
---          ss<=ss_idle;
-
---        when ss_idle =>
---          if (start='1') then
---            wren <= '1';
---            outdata <= x"40" & "000" & cmptype(4 downto 0);
---            ss<=ss_header;
---          end if;
 
 	when ss_header =>
           wrpointer <= wrpointer + 1;
@@ -390,12 +314,10 @@ begin
             if (ChID="0000") then
               outdata <= "00" & datain3;
             elsif (ChID="0001") then
-              outdata <=  "00" & Sum4_0(15 downto 2);
-            elsif (ChID="0010") then
               outdata <=  "00" & Sum8_0(15 downto 2);
-            elsif (ChID="0011") then
+            elsif (ChID="0010") then
               outdata <= "000000000000000" & SPeak4;
-            elsif (ChID="0100") then
+            elsif (ChID="0011") then
               outdata <= "000000000000000" & SPeak8;
             else
               outdata <= "00000" & keepR & "0" & keepQ & "0" & keepP;
