@@ -42,7 +42,7 @@ architecture EventBufferManager of EventBufferManager is
     Clock : in std_logic;
     Reset : in std_logic;
     RstSoft : in std_logic;
-    datainB : in std_logic_vector(13 downto 0);
+    datainF : in std_logic_vector(13 downto 0);
     dataout : out std_logic_vector(31 downto 0);
     address : out std_logic_vector(9 downto 0);
     datasize : out std_logic_vector(10 downto 0);
@@ -140,7 +140,7 @@ begin
       Reset => Reset,
       RstSoft => (RstSoftS or RstSoftH),
 --      datainB => DataIn((i)*14+13 downto (i)*14),
-      datainB => DataIn(13 downto 0),
+      datainF => DataIn(13 downto 0),
       dataout => MemIn(i),
       address => wrpointer(i),
       datasize => datasize(i),
