@@ -4,7 +4,7 @@ use ieee.std_logic_arith.all;
 
 package AddressMap is
 
-  constant CurVersion : std_logic_vector(31 downto 0) := x"20190801";
+  constant CurVersion : std_logic_vector(31 downto 0) := x"20190805";
   constant NumUserModules : natural := 7;
   constant NumEvtBuffer : natural := 3; --4;
   constant NumCh : natural := 16;

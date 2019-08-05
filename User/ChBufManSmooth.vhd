@@ -87,13 +87,15 @@ architecture ChBufManSmooth of ChBufManSmooth is
   signal Sum4_4 : std_logic_vector(15 downto 0);
 
   signal Sum8_0 : std_logic_vector(16 downto 0);
-  signal Sum8_1 : std_logic_vector(16 downto 0);
+--  signal Sum8_1 : std_logic_vector(16 downto 0);
   signal Sum8_1M : std_logic_vector(16 downto 0);
   signal Sum8_1P : std_logic_vector(16 downto 0);
-  signal Sum8_2 : std_logic_vector(16 downto 0);
+  signal Sum8_2M : std_logic_vector(16 downto 0);
+  signal Sum8_2P : std_logic_vector(16 downto 0);
+  signal Sum8_3 : std_logic_vector(16 downto 0);
 
-  signal SPeak8 : std_logic;
-  signal SDip8 : std_logic;
+  signal SPeak8 : std_logic_vector(2 downto 0) := "000";
+  signal SDip8 : std_logic_vector(2 downto 0) :="000";
 
 --  type ss_type is (ss_init, ss_idle, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
   type ss_type is (ss_init, ss_header, ss_record, ss_header2, ss_header3, ss_wait);
@@ -130,10 +132,12 @@ begin
       Sum4_4 <= Sum4_3;
 
       Sum8_0 <= ("0" & Sum4_0) + ("0" & Sum4_4);
-      Sum8_1 <= Sum8_0 - excessp;
-      Sum8_1M <= Sum8_0 - excessp;
-      Sum8_1P <= Sum8_0 + excessd;
-      Sum8_2 <= Sum8_1;
+--      Sum8_1 <= Sum8_0;
+      Sum8_1M <= Sum8_0 - (excessp & "000");
+      Sum8_1P <= Sum8_0 + (excessd & "000");
+      Sum8_2M <= Sum8_1M;
+      Sum8_2P <= Sum8_1P;
+      Sum8_3 <= Sum8_2M + (excessp & "000");
     end if;
   end process;
   
@@ -164,16 +168,22 @@ begin
       if (datain3 > datain0P) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
       if ((Sum8_0(16 downto 3)<=Sum8_1M(16 downto 3)) and
-          (Sum8_1M(16 downto 3)>=Sum8_2(16 downto 3))) then
-        SPeak8<='1';
+          (Sum8_2M(16 downto 3)>=Sum8_3(16 downto 3))) then
+        SPeak8<="111";
       else
-        SPeak8<='0';
+		  if (SPeak8/="000") then
+		    SPeak8<=Speak8 - 1;
+		  end if;
+--        SPeak8<='0';
       end if;
       if ((Sum8_0(16 downto 3)>=Sum8_1P(16 downto 3)) and
-          (Sum8_1P(16 downto 3)<=Sum8_2(16 downto 3))) then
-        SDip8<='1';
+          (Sum8_2P(16 downto 3)<=Sum8_3(16 downto 3))) then
+        SDip8<="000";
       else
-        SDip8<='0';
+		  if (SDip8/="000") then
+		    SDip8<=SDip8-1;
+        end if;
+--        SDip8<='0';
       end if;
     end if;
   end process;
@@ -314,13 +324,13 @@ begin
             if (ChID="0000") then
               outdata <= "00" & datain3;
             elsif (ChID="0001") then
-              outdata <=  "00" & Sum8_0(15 downto 2);
+              outdata <=  "00" & Sum8_0(16 downto 3);
             elsif (ChID="0010") then
-              outdata <= "000000000000000" & SPeak4;
+               outdata <= "0000000000000" & SPeak8;
             elsif (ChID="0011") then
-              outdata <= "000000000000000" & SPeak8;
+               outdata <= "0000000000000" & SDip8;
             else
-              outdata <= "00000" & keepR & "0" & keepQ & "0" & keepP;
+              outdata <= "00000" & "000" & "0" & keepQ & "0" & keepP;
             end if;
           end if;
 
