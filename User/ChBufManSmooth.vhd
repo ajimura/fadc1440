@@ -13,7 +13,7 @@ entity ChBufManSmooth is
     Reset : in std_logic;
     RstSoft : in std_logic;
 --    datain : in std_logic_vector(13 downto 0);
-    datainF : in std_logic_vector(13 downto 0);
+    datainH : in std_logic_vector(13 downto 0);
     dataout : out std_logic_vector(31 downto 0);
     address : out std_logic_vector(9 downto 0);
     datasize : out std_logic_vector(10 downto 0);
@@ -72,6 +72,8 @@ architecture ChBufManSmooth of ChBufManSmooth is
 --  signal keepZ : std_logic_vector(2 downto 0) := "000";
   signal keepS : std_logic_vector(2 downto 0) := "000";
 
+  signal datainG : std_logic_vector(13 downto 0);
+  signal datainF : std_logic_vector(13 downto 0);
   signal datainE : std_logic_vector(13 downto 0);
   signal datainD : std_logic_vector(13 downto 0);
   signal datainC : std_logic_vector(13 downto 0);
@@ -112,6 +114,8 @@ begin
   process (Clock)
   begin
     if (Clock'event and Clock='1') then
+      datainG <= datainH;
+      datainF <= datainG;
       datainE <= datainF;
       datainD <= datainE;
       datainC <= datainD;
@@ -125,7 +129,7 @@ begin
       datain2 <= datain1;
       datain3 <= datain2;
 
-      Sum4_0 <= ("00" & datainC) + ("00" & datainD) + ("00" & datainE) + ("00" & datainF);
+      Sum4_0 <= ("00" & datainE) + ("00" & datainF) + ("00" & datainG) + ("00" & datainH);
       Sum4_1 <= Sum4_0;
       Sum4_2 <= Sum4_1;
       Sum4_3 <= Sum4_2;
@@ -171,17 +175,17 @@ begin
           (Sum8_2M(16 downto 3)>=Sum8_3(16 downto 3))) then
         SPeak8<="111";
       else
-		  if (SPeak8/="000") then
-		    SPeak8<=Speak8 - 1;
-		  end if;
+        if (SPeak8/="000") then
+          SPeak8<=Speak8 - 1;
+        end if;
 --        SPeak8<='0';
       end if;
       if ((Sum8_0(16 downto 3)>=Sum8_1P(16 downto 3)) and
           (Sum8_2P(16 downto 3)<=Sum8_3(16 downto 3))) then
         SDip8<="000";
       else
-		  if (SDip8/="000") then
-		    SDip8<=SDip8-1;
+        if (SDip8/="000") then
+          SDip8<=SDip8-1;
         end if;
 --        SDip8<='0';
       end if;
@@ -299,7 +303,7 @@ begin
             size4header <= (others => '0');
           end if;
 
-	when ss_header =>
+        when ss_header =>
           wrpointer <= wrpointer + 1;
           timestamp <= timestamp + 1;
           size4header <= size4header + 1;
