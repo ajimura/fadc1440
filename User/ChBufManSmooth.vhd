@@ -64,7 +64,7 @@ architecture ChBufManSmooth of ChBufManSmooth is
 
   signal keepP : std_logic_vector(2 downto 0) := "000";
   signal keepQ : std_logic_vector(2 downto 0) := "000";
---  signal keepR : std_logic_vector(2 downto 0) := "000";
+  signal keepR : std_logic_vector(2 downto 0) := "000";
 --  signal keepM : std_logic_vector(2 downto 0) := "000";
   signal keepD : std_logic_vector(2 downto 0) := "000";
   signal keepE : std_logic_vector(2 downto 0) := "000";
@@ -210,6 +210,24 @@ begin
     end if;
   end process;
 
+  -- check peak and smooth
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0) and SPeak8/="000") then
+        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
+          if (cmptype(3)='1') then
+            keepR <= "100";
+          end if;
+        else
+          if (keepR > 0) then keepR <= keepR - 1; end if;
+        end if;
+      else
+        if (keepR > 0) then keepR <= keepR - 1; end if;
+      end if;
+    end if;
+  end process;
+
   -- check peak (&pre2/pos2)
   process (Clock)
   begin
@@ -334,7 +352,7 @@ begin
             elsif (ChID="0011") then
                outdata <= "0000000000000" & SDip8;
             else
-              outdata <= "00000" & "000" & "0" & keepQ & "0" & keepP;
+              outdata <= "00000" & keepR & "0" & keepQ & "0" & keepP;
             end if;
           end if;
 
