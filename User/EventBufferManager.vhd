@@ -36,7 +36,8 @@ architecture EventBufferManager of EventBufferManager is
 
   -- Component Declaration ---------------------------------------------------
 --  component ChBufManPeakMark
-  component ChBufManSPeak
+  component ChBufManSmooth
+--  component ChBufManSPeak
   generic( ChID : std_logic_vector(3 downto 0) );
   port(
     Clock : in std_logic;
@@ -133,7 +134,8 @@ begin
 
   ChBufGen0: for i in 0 to 15 generate
 --    CM0: ChBufManPeakMark
-    CM0: ChBufManSPeak
+    CM0: ChBufManSmooth
+--    CM0: ChBufManSPeak
     generic map (ChID => Conv_std_logic_vector(i,4))
     port map (
       Clock => Clock,

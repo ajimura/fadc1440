@@ -31,9 +31,9 @@ entity ChBufManSmooth is
 end ChBufManSmooth;
 
 -- cmptype
--- * 8: dip (& pre2/pos2 & pre3/port3)
+-- * 8: dip (& pre2/pos2 & pre3/port3) -> dip and smooth
 --  7: dip (& pre2/pos2)
--- * 6: peak (& pre2/pos2 & pre3/port3)
+-- * 6: peak (& pre2/pos2 & pre3/port3) -> peak and smooth
 --  5: peak (& pre2/pos2)
 --  4: simple SUP
 --  3: peak
@@ -68,7 +68,7 @@ architecture ChBufManSmooth of ChBufManSmooth is
 --  signal keepM : std_logic_vector(2 downto 0) := "000";
   signal keepD : std_logic_vector(2 downto 0) := "000";
   signal keepE : std_logic_vector(2 downto 0) := "000";
---  signal keepF : std_logic_vector(2 downto 0) := "000";
+  signal keepF : std_logic_vector(2 downto 0) := "000";
 --  signal keepZ : std_logic_vector(2 downto 0) := "000";
   signal keepS : std_logic_vector(2 downto 0) := "000";
 
@@ -182,7 +182,7 @@ begin
       end if;
       if ((Sum8_0(16 downto 3)>=Sum8_1P(16 downto 3)) and
           (Sum8_2P(16 downto 3)<=Sum8_3(16 downto 3))) then
-        SDip8<="000";
+        SDip8<="111";
       else
         if (SDip8/="000") then
           SDip8<=SDip8-1;
@@ -264,6 +264,24 @@ begin
         end if;
       else
         if (keepD > 0) then keepD <= keepD - 1; end if;
+      end if;
+    end if;
+  end process;
+
+  -- check dip and smooth
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0) and SDip8/="000") then
+        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
+          if (cmptype(2)='1') then
+            keepF <= "100";
+          end if;
+        else
+          if (keepF > 0) then keepF <= keepF - 1; end if;
+        end if;
+      else
+        if (keepF > 0) then keepF <= keepF - 1; end if;
       end if;
     end if;
   end process;
@@ -351,9 +369,16 @@ begin
                outdata <= "0000000000000" & SPeak8;
             elsif (ChID="0011") then
                outdata <= "0000000000000" & SDip8;
-            else
+            elsif (ChID="0100") then
               outdata <= "00000" & keepR & "0" & keepQ & "0" & keepP;
-            end if;
+            elsif (ChID="0101") then
+              outdata <= "00000" & keepF & "0" & keepE & "0" & keepD;
+            elsif (ChID="0110" and (keepR(2 downto 1)/="00" or keepF(2 downto 1)/="00")) then
+				  outdata <= "00" & datain3;
+            else
+				  outdata <= (others=>'0');
+-- 				  outdata <= "00000" & wrpointer(10 downto 0);
+           end if;
           end if;
 
         when ss_header2 =>

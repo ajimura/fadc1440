@@ -278,6 +278,7 @@ set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterI
 set_global_assignment -name VHDL_FILE "SpW-RMAP/SpW-Router/VHDL/SpaceWireRouterIP.vhdl"
 set_global_assignment -name VHDL_FILE User/fadccore.vhd
 set_global_assignment -name VHDL_FILE User/ChBufManSmooth.vhd
+set_global_assignment -name VHDL_FILE User/ChBufManSPeak.vhd
 set_global_assignment -name VHDL_FILE User/ChBufManPeakMark.vhd
 set_global_assignment -name VHDL_FILE User/ChBufManPeak.vhd
 set_global_assignment -name VHDL_FILE User/ADCReceiver.vhd
