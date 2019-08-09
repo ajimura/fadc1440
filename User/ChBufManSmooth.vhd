@@ -358,22 +358,40 @@ begin
             outdata <= "11" & timestamp(13 downto 0);
             ss <= ss_header2;
           else
-            wren <= '1';
-            wrpointer <= wrpointer + 1;
-            size4header <= size4header + 1;
             if (ChID="0000") then
+              wren <= '1';
+              wrpointer <= wrpointer + 1;
+              size4header <= size4header + 1;
               outdata <= "00" & datain3;
             elsif (ChID="0001") then
+              wren <= '1';
+              wrpointer <= wrpointer + 1;
+              size4header <= size4header + 1;
               outdata <=  "00" & Sum8_0(16 downto 3);
             elsif (ChID="0010") then
+              wren <= '1';
+              wrpointer <= wrpointer + 1;
+              size4header <= size4header + 1;
                outdata <= "0000000000000" & SPeak8;
             elsif (ChID="0011") then
+              wren <= '1';
+              wrpointer <= wrpointer + 1;
+              size4header <= size4header + 1;
                outdata <= "0000000000000" & SDip8;
             elsif (ChID="0100") then
+              wren <= '1';
+              wrpointer <= wrpointer + 1;
+              size4header <= size4header + 1;
               outdata <= "00000" & keepR & "0" & keepQ & "0" & keepP;
             elsif (ChID="0101") then
+              wren <= '1';
+              wrpointer <= wrpointer + 1;
+              size4header <= size4header + 1;
               outdata <= "00000" & keepF & "0" & keepE & "0" & keepD;
             elsif (ChID="0110" and (keepR(2 downto 1)/="00" or keepF(2 downto 1)/="00")) then
+              wren <= '1';
+              wrpointer <= wrpointer + 1;
+              size4header <= size4header + 1;
 				  outdata <= "00" & datain3;
             else
 				  outdata <= (others=>'0');
