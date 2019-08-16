@@ -130,10 +130,11 @@ begin
       datain3 <= datain2;
 
       Sum4_0 <= ("00" & datainE) + ("00" & datainF) + ("00" & datainG) + ("00" & datainH);
-      Sum4_1 <= Sum4_0;
-      Sum4_2 <= Sum4_1;
-      Sum4_3 <= Sum4_2;
-      Sum4_4 <= Sum4_3;
+--      Sum4_1 <= Sum4_0;
+--      Sum4_2 <= Sum4_1;
+--      Sum4_3 <= Sum4_2;
+--      Sum4_4 <= Sum4_3;
+      Sum4_4 <= ("00" & datainA) + ("00" & datainB) + ("00" & datainC) + ("00" & datainD);
 
       Sum8_0 <= ("0" & Sum4_0) + ("0" & Sum4_4);
 --      Sum8_1 <= Sum8_0;
@@ -216,7 +217,7 @@ begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0) and SPeak8/="000") then
         if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (cmptype(3)='1') then
+          if (cmptype(5)='1') then
             keepR <= "100";
           end if;
         else
@@ -235,7 +236,7 @@ begin
       if (datain2>threshold(13 downto 0)) then
         if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
           if (preUDiff1='1' and posUDiff1='1') then
-            if (cmptype(5)='1') then
+            if (cmptype(6)='1') then
               keepQ <= "100";
             end if;
           else
@@ -274,7 +275,7 @@ begin
     if (Clock'event and Clock='1') then
       if (datain2>threshold(13 downto 0) and SDip8/="000") then
         if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
-          if (cmptype(2)='1') then
+          if (cmptype(7)='1') then
             keepF <= "100";
           end if;
         else
@@ -293,7 +294,7 @@ begin
       if (datain2>threshold(13 downto 0)) then
         if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
           if (preDDiff1='1' and posDDiff1='1') then
-            if (cmptype(7)='1') then
+            if (cmptype(8)='1') then
               keepE <= "100";
             end if;
           else
