@@ -130,10 +130,11 @@ begin
       datain3 <= datain2;
 
       Sum4_0 <= ("00" & datainE) + ("00" & datainF) + ("00" & datainG) + ("00" & datainH);
-      Sum4_1 <= Sum4_0;
-      Sum4_2 <= Sum4_1;
-      Sum4_3 <= Sum4_2;
-      Sum4_4 <= Sum4_3;
+--      Sum4_1 <= Sum4_0;
+--      Sum4_2 <= Sum4_1;
+--      Sum4_3 <= Sum4_2;
+--      Sum4_4 <= Sum4_3;
+      Sum4_4 <= ("00" & datainA) + ("00" & datainB) + ("00" & datainC) + ("00" & datainD);
 
       Sum8_0 <= ("0" & Sum4_0) + ("0" & Sum4_4);
 --      Sum8_1 <= Sum8_0;
