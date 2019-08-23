@@ -90,11 +90,11 @@ architecture ChBufManSPeak of ChBufManSPeak is
 
   signal Sum8_0 : std_logic_vector(14 downto 0);
 --  signal Sum8_1 : std_logic_vector(14 downto 0);
-  signal Sum8_1M : std_logic_vector(14 downto 0);
-  signal Sum8_1P : std_logic_vector(14 downto 0);
-  signal Sum8_2M : std_logic_vector(14 downto 0);
-  signal Sum8_2P : std_logic_vector(14 downto 0);
-  signal Sum8_3 : std_logic_vector(14 downto 0);
+  signal Sum8_1M : std_logic_vector(13 downto 0);
+  signal Sum8_1P : std_logic_vector(13 downto 0);
+  signal Sum8_2M : std_logic_vector(13 downto 0);
+  signal Sum8_2P : std_logic_vector(13 downto 0);
+  signal Sum8_3 : std_logic_vector(13 downto 0);
 
   signal SPeak8 : std_logic_vector(2 downto 0) := "000";
   signal SDip8 : std_logic_vector(2 downto 0) :="000";
@@ -138,8 +138,8 @@ begin
 
       Sum8_0 <= ("0" & Sum4_0(15 downto 2)) + ("0" & Sum4_4(15 downto 2));
 --      Sum8_1 <= Sum8_0;
-      Sum8_1M <= Sum8_0 - (excessp);
-      Sum8_1P <= Sum8_0 + (excessd);
+      Sum8_1M <= Sum8_0(14 downto 1) - (excessp);
+      Sum8_1P <= Sum8_0(14 downto 1) + (excessd);
       Sum8_2M <= Sum8_1M;
       Sum8_2P <= Sum8_1P;
       Sum8_3 <= Sum8_2M + (excessp);
@@ -172,8 +172,8 @@ begin
       if (datain2 > datain0P) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
       if (datain3 > datain0P) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
-      if ((Sum8_0(14 downto 1)<Sum8_1M(14 downto 1)) and
-          (Sum8_2M(14 downto 1)>Sum8_3(14 downto 1))) then
+      if ((Sum8_0(14 downto 1)<Sum8_1M(13 downto 0)) and
+          (Sum8_2M(13 downto 0)>Sum8_3(13 downto 0))) then
         SPeak8<="111";
       else
         if (SPeak8/="000") then
@@ -181,8 +181,8 @@ begin
         end if;
 --        SPeak8<='0';
       end if;
-      if ((Sum8_0(14 downto 1)>Sum8_1P(14 downto 1)) and
-          (Sum8_2P(14 downto 1)<Sum8_3(14 downto 1))) then
+      if ((Sum8_0(14 downto 1)>Sum8_1P(13 downto 0)) and
+          (Sum8_2P(13 downto 0)<Sum8_3(13 downto 0))) then
         SDip8<="111";
       else
         if (SDip8/="000") then
