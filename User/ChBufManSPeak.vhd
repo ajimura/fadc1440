@@ -31,9 +31,9 @@ entity ChBufManSPeak is
 end ChBufManSPeak;
 
 -- cmptype
--- * 8: dip & sum8
+--  8: dip & sum8
 --  7: dip & pre2/pos2 or pre3/port3
--- * 6: peak &sum8
+--  6: peak &sum8
 --  5: peak & pre2/pos2 or pre3/port3
 --  4: simple SUP
 --  3: peak

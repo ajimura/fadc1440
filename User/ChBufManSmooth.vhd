@@ -172,8 +172,8 @@ begin
       if (datain2 > datain0P) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
       if (datain3 > datain0P) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
-      if ((Sum8_0(16 downto 3)<=Sum8_1M(13 downto 0)) and
-          (Sum8_2M(13 downto 0)>=Sum8_3(13 downto 0))) then
+      if ((Sum8_0(16 downto 3)<Sum8_1M(13 downto 0)) and
+          (Sum8_2M(13 downto 0)>Sum8_3(13 downto 0))) then
         SPeak8<="111";
       else
         if (SPeak8/="000") then
@@ -181,8 +181,8 @@ begin
         end if;
 --        SPeak8<='0';
       end if;
-      if ((Sum8_0(16 downto 3)>=Sum8_1P(13 downto 0)) and
-          (Sum8_2P(13 downto 0)<=Sum8_3(13 downto 0))) then
+      if ((Sum8_0(16 downto 3)>Sum8_1P(13 downto 0)) and
+          (Sum8_2P(13 downto 0)<Sum8_3(13 downto 0))) then
         SDip8<="111";
       else
         if (SDip8/="000") then
@@ -370,7 +370,7 @@ begin
               wren <= '1';
               wrpointer <= wrpointer + 1;
               size4header <= size4header + 1;
-              outdata <=  "00" & Sum8_0(14 downto 1);
+              outdata <=  "00" & Sum8_0(16 downto 3);
             elsif (ChID="0010") then
               wren <= '1';
               wrpointer <= wrpointer + 1;
