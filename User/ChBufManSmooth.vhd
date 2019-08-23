@@ -88,13 +88,13 @@ architecture ChBufManSmooth of ChBufManSmooth is
   signal Sum4_3 : std_logic_vector(15 downto 0);
   signal Sum4_4 : std_logic_vector(15 downto 0);
 
-  signal Sum8_0 : std_logic_vector(16 downto 0);
+  signal Sum8_0 : std_logic_vector(14 downto 0);
 --  signal Sum8_1 : std_logic_vector(16 downto 0);
-  signal Sum8_1M : std_logic_vector(16 downto 0);
-  signal Sum8_1P : std_logic_vector(16 downto 0);
-  signal Sum8_2M : std_logic_vector(16 downto 0);
-  signal Sum8_2P : std_logic_vector(16 downto 0);
-  signal Sum8_3 : std_logic_vector(16 downto 0);
+  signal Sum8_1M : std_logic_vector(13 downto 0);
+  signal Sum8_1P : std_logic_vector(13 downto 0);
+  signal Sum8_2M : std_logic_vector(13 downto 0);
+  signal Sum8_2P : std_logic_vector(13 downto 0);
+  signal Sum8_3 : std_logic_vector(13 downto 0);
 
   signal SPeak8 : std_logic_vector(2 downto 0) := "000";
   signal SDip8 : std_logic_vector(2 downto 0) :="000";
@@ -136,13 +136,13 @@ begin
 --      Sum4_4 <= Sum4_3;
       Sum4_4 <= ("00" & datainA) + ("00" & datainB) + ("00" & datainC) + ("00" & datainD);
 
-      Sum8_0 <= ("0" & Sum4_0) + ("0" & Sum4_4);
+      Sum8_0 <= ("0" & Sum4_0(15 downto 2)) + ("0" & Sum4_4(15 downto 2));
 --      Sum8_1 <= Sum8_0;
-      Sum8_1M <= Sum8_0 - (excessp & "000");
-      Sum8_1P <= Sum8_0 + (excessd & "000");
+      Sum8_1M <= Sum8_0(14 downto 1) - (excessp);
+      Sum8_1P <= Sum8_0(14 downto 1) + (excessd);
       Sum8_2M <= Sum8_1M;
       Sum8_2P <= Sum8_1P;
-      Sum8_3 <= Sum8_2M + (excessp & "000");
+      Sum8_3 <= Sum8_2M + (excessp);
     end if;
   end process;
   
@@ -172,8 +172,8 @@ begin
       if (datain2 > datain0P) then preDDiff1 <= '1'; else preDDiff1 <= '0'; end if;
       if (datain3 > datain0P) then preDDiff2 <= '1'; else preDDiff2 <= '0'; end if;
 
-      if ((Sum8_0(16 downto 3)<=Sum8_1M(16 downto 3)) and
-          (Sum8_2M(16 downto 3)>=Sum8_3(16 downto 3))) then
+      if ((Sum8_0(14 downto 1)<=Sum8_1M(13 downto 0)) and
+          (Sum8_2M(13 downto 0)>=Sum8_3(13 downto 0))) then
         SPeak8<="111";
       else
         if (SPeak8/="000") then
@@ -181,8 +181,8 @@ begin
         end if;
 --        SPeak8<='0';
       end if;
-      if ((Sum8_0(16 downto 3)>=Sum8_1P(16 downto 3)) and
-          (Sum8_2P(16 downto 3)<=Sum8_3(16 downto 3))) then
+      if ((Sum8_0(14 downto 1)>=Sum8_1P(13 downto 0)) and
+          (Sum8_2P(13 downto 0)<=Sum8_3(13 downto 0))) then
         SDip8<="111";
       else
         if (SDip8/="000") then
@@ -211,24 +211,6 @@ begin
     end if;
   end process;
 
-  -- check peak and smooth
-  process (Clock)
-  begin
-    if (Clock'event and Clock='1') then
-      if (datain2>threshold(13 downto 0) and SPeak8/="000") then
-        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
-          if (cmptype(5)='1') then
-            keepR <= "100";
-          end if;
-        else
-          if (keepR > 0) then keepR <= keepR - 1; end if;
-        end if;
-      else
-        if (keepR > 0) then keepR <= keepR - 1; end if;
-      end if;
-    end if;
-  end process;
-
   -- check peak (&pre2/pos2)
   process (Clock)
   begin
@@ -236,7 +218,8 @@ begin
       if (datain2>threshold(13 downto 0)) then
         if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
           if (preUDiff1='1' and posUDiff1='1') then
-            if (cmptype(6)='1') then
+--          if (preUDiff1='1' and posUDiff1='1' and preUDiff2='1' and posUDiff2='1') then
+            if (cmptype(5)='1') then
               keepQ <= "100";
             end if;
           else
@@ -247,6 +230,24 @@ begin
         end if;
       else
         if (keepQ > 0) then keepQ <= keepQ - 1; end if;
+      end if;
+    end if;
+  end process;
+
+  -- check peak and smooth
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0) and SPeak8/="000") then
+        if ((up0='1' and dn='1') or (eq0='1' and dn='1') or (up0='1' and eq='1')) then
+          if (cmptype(6)='1') then
+            keepR <= "100";
+          end if;
+        else
+          if (keepR > 0) then keepR <= keepR - 1; end if;
+        end if;
+      else
+        if (keepR > 0) then keepR <= keepR - 1; end if;
       end if;
     end if;
   end process;
@@ -269,24 +270,6 @@ begin
     end if;
   end process;
 
-  -- check dip and smooth
-  process (Clock)
-  begin
-    if (Clock'event and Clock='1') then
-      if (datain2>threshold(13 downto 0) and SDip8/="000") then
-        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
-          if (cmptype(7)='1') then
-            keepF <= "100";
-          end if;
-        else
-          if (keepF > 0) then keepF <= keepF - 1; end if;
-        end if;
-      else
-        if (keepF > 0) then keepF <= keepF - 1; end if;
-      end if;
-    end if;
-  end process;
-
   -- check dip (&pre2/pos2)
   process (Clock)
   begin
@@ -294,7 +277,8 @@ begin
       if (datain2>threshold(13 downto 0)) then
         if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
           if (preDDiff1='1' and posDDiff1='1') then
-            if (cmptype(8)='1') then
+--          if (preDDiff1='1' and posDDiff1='1' and preDDiff2='1' and posDDiff2='1') then
+            if (cmptype(7)='1') then
               keepE <= "100";
             end if;
           else
@@ -305,6 +289,24 @@ begin
         end if;
       else
         if (keepE > 0) then keepE <= keepE - 1; end if;
+      end if;
+    end if;
+  end process;
+
+  -- check dip and smooth
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if (datain2>threshold(13 downto 0) and SDip8/="000") then
+        if ((dn0='1' and up='1') or (dn0='1' and eq='1') or (eq0='1' and up='1')) then
+          if (cmptype(8)='1') then
+            keepF <= "100";
+          end if;
+        else
+          if (keepF > 0) then keepF <= keepF - 1; end if;
+        end if;
+      else
+        if (keepF > 0) then keepF <= keepF - 1; end if;
       end if;
     end if;
   end process;
@@ -368,7 +370,7 @@ begin
               wren <= '1';
               wrpointer <= wrpointer + 1;
               size4header <= size4header + 1;
-              outdata <=  "00" & Sum8_0(16 downto 3);
+              outdata <=  "00" & Sum8_0(14 downto 1);
             elsif (ChID="0010") then
               wren <= '1';
               wrpointer <= wrpointer + 1;
