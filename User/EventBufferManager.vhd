@@ -21,8 +21,8 @@ entity EventBufferManager is
     FullRange : in std_logic_vector(15 downto 0);
     CmpType : in std_logic_vector(8 downto 0);
     Thres : in ChArray16;
-    excessp : in std_logic_vector(7 downto 0);
-    excessd : in std_logic_vector(7 downto 0);
+    excessp1 : in std_logic_vector(7 downto 0);
+    excessd1 : in std_logic_vector(7 downto 0);
     LocalBusAddress : in std_logic_vector(31 downto 0);
     LocalBusDataIn : in std_logic_vector(31 downto 0);
     LocalBusdataout : out std_logic_vector(31 downto 0);
@@ -103,6 +103,8 @@ architecture EventBufferManager of EventBufferManager is
   signal MemIn : ChArray32;
   signal byteena : ChArray4;
 --  signal ss_status : std_logic_vector(31 downto 0);
+  signal excessp16 : ChArray8 := (others=>"00001010");
+  signal excessd16 : ChArray8 := (others=>"00001010");
 
   signal flush : std_logic := '0';
   signal count_reset : std_logic := '0';
@@ -149,8 +151,10 @@ begin
       fullrange => FullRange,
       threshold => Thres(i),
       cmptype => CmpType(8 downto 0),
-      excessp => excessp,
-      excessd => excessd,
+--      excessp => excessp,
+--      excessd => excessd,
+      excessp => excessp16(i),
+      excessd => excessd16(i),
       wren => wren(i),
       byteena => byteena(i),
       start => BufferStart,
@@ -363,8 +367,12 @@ begin
           end if;
         
         when Write =>
-          if ( LocalBusAddress(3 downto 2) = EBM_CntRst(3 downto 2) ) then
+          if ( LocalBusAddress(4 downto 2) = EBM_CntRst(4 downto 2) ) then
             count_reset <= '1';
+          elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessP16(4 downto 2) ) then
+            excessp16(id) <= LocalBusDataIn(7 downto 0);
+          elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessD16(4 downto 2) ) then
+            excessd16(id) <= LocalBusDataIn(7 downto 0);
           end if;
           ss_bus <= Done;
           
@@ -373,13 +381,13 @@ begin
             LocalBusDataOut <= OutputData;
             ss_bus <= Done;
           else
-            if (LocalBusAddress(3 downto 2) = EBM_Count(3 downto 2)) then
+            if (LocalBusAddress(4 downto 2) = EBM_Count(4 downto 2)) then
               LocalBusDataOut <= count;
               ss_bus <= Done;
-            elsif (LocalBusAddress(3 downto 2) = EBM_DataSize(3 downto 2)) then
+            elsif (LocalBusAddress(4 downto 2) = EBM_DataSize(4 downto 2)) then
               LocalBusDataOut(10 downto 0) <= datasize(id);
               ss_bus <= Done;
-            elsif (LocalBusAddress(3 downto 2) = EBM_TotSize(3 downto 2)) then
+            elsif (LocalBusAddress(4 downto 2) = EBM_TotSize(4 downto 2)) then
               LocalBusDataOut(15 downto 0) <= totsize;
               if (totsize=x"0080") then
                 flush<= '1';
@@ -388,6 +396,12 @@ begin
 --            elsif (LocalBusAddress(4 downto 2) = EBM_Status(4 downto 2)) then
 --              LocalBusDataOut(31 downto 0) <= ss_status;
 --              ss_bus <= Done;
+            elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessP16(4 downto 2) ) then
+              LocalBusDataOut(7 downto 0) <= excessp16(id);
+              ss_bus <= Done;
+            elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessD16(4 downto 2) ) then
+              LocalBusDataOut(7 downto 0) <= excessd16(id);
+              ss_bus <= Done;
             else
               ss_bus <= Done;
             end if;
