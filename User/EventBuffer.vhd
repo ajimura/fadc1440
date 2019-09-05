@@ -47,6 +47,8 @@ architecture EventBuffer of EventBuffer is
       Thres : in ChArray16;
       excessp1 : in std_logic_vector(7 downto 0);
       excessd1 : in std_logic_vector(7 downto 0);
+      excessp1 : in ChArray8;
+      excessd1 : in ChArray8;
       LocalBusAddress : in std_logic_vector(31 downto 0);
       LocalBusDataIn : in std_logic_vector(31 downto 0);
       LocalBusDataOut : out std_logic_vector(31 downto 0);
@@ -78,6 +80,8 @@ architecture EventBuffer of EventBuffer is
                                x"0000", x"0000", x"0000", x"0000");
   signal excessp1 : std_logic_vector(7 downto 0) := "00001010";
   signal excessd1 : std_logic_vector(7 downto 0) := "00001010";
+  signal excessp16 : ChArray8 := (others=>"00001010");
+  signal excessd16 : ChArray8 := (others=>"00001010");
 
   type EBBusType is (
     Initialize,
@@ -109,6 +113,8 @@ begin
         Thres => thres,
         excessp1 => excessp1,
         excessd1 => excessd1,
+        excessp16 => excessp16,
+        excessd16 => excessd16,
         LocalBusAddress => LocalBusAddress,
         LocalBusDataIn => LocalBusDataIn,
         LocalBusDataOut => BusDataOut(i),
@@ -182,6 +188,10 @@ begin
                 excessp1(7 downto 0) <= LocalBusDataIn( 7 downto 0);
               elsif ( LocalBusAddress(7 downto 2) = EBM_ExcessD(7 downto 2) ) then
                 excessd1(7 downto 0) <= LocalBusDataIn( 7 downto 0);
+              elsif ( LocalBusAddress(7 downto 2) = EBM_ExcessP16(7 downto 2) ) then
+                excessp16(id) <= LocalBusDataIn( 7 downto 0);
+              elsif ( LocalBusAddress(7 downto 2) = EBM_ExcessD16(7 downto 2) ) then
+                excessd16(id) <= LocalBusDataIn( 7 downto 0);
               end if;
             else
               if (LocalBusAddress(7 downto 2) = EBM_Range(7 downto 2)) then
@@ -195,6 +205,10 @@ begin
                 TmpDataOut(7 downto 0) <= excessp1(7 downto 0);
               elsif (LocalBusAddress(7 downto 2) = EBM_ExcessD(7 downto 2)) then
                 TmpDataOut(7 downto 0) <= excessd1(7 downto 0);
+              elsif (LocalBusAddress(7 downto 2) = EBM_ExcessP16(7 downto 2)) then
+                TmpDataOut(7 downto 0) <= excessp16(id);
+              elsif (LocalBusAddress(7 downto 2) = EBM_ExcessD16(7 downto 2)) then
+                TmpDataOut(7 downto 0) <= excessd16(id);
               end if;
             end if;
             ss_bus <= Done;

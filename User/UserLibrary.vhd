@@ -54,13 +54,13 @@ package AddressMap is
   constant EBM_DataSize		: std_logic_vector(15 downto 0):= x"0004";
   constant EBM_TotSize		: std_logic_vector(15 downto 0):= x"0008";
   constant EBM_CntRst           : std_logic_vector(15 downto 0):= x"000C";
-  constant EBM_ExcessP16	: std_logic_vector(15 downto 0):= x"0010";
-  constant EBM_ExcessD16	: std_logic_vector(15 downto 0):= x"0014";
   constant EBM_Range		: std_logic_vector(15 downto 0):= x"0080";
   constant EBM_Thres		: std_logic_vector(15 downto 0):= x"0084";
   constant EBM_CmpType		: std_logic_vector(15 downto 0):= x"0088";
   constant EBM_ExcessP		: std_logic_vector(15 downto 0):= x"008C";
   constant EBM_ExcessD		: std_logic_vector(15 downto 0):= x"0090";
+  constant EBM_ExcessP16	: std_logic_vector(15 downto 0):= x"0094";
+  constant EBM_ExcessD16	: std_logic_vector(15 downto 0):= x"0098";
   ---- General
   constant CMN_Version		: std_logic_vector(15 downto 0):= x"0000";
   constant CMN_HardRst		: std_logic_vector(15 downto 0):= x"0000";

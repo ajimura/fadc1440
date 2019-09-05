@@ -23,6 +23,8 @@ entity EventBufferManager is
     Thres : in ChArray16;
     excessp1 : in std_logic_vector(7 downto 0);
     excessd1 : in std_logic_vector(7 downto 0);
+    excessp16 : in ChArray8;
+    excessd16 : in ChArray8;
     LocalBusAddress : in std_logic_vector(31 downto 0);
     LocalBusDataIn : in std_logic_vector(31 downto 0);
     LocalBusdataout : out std_logic_vector(31 downto 0);
@@ -103,8 +105,6 @@ architecture EventBufferManager of EventBufferManager is
   signal MemIn : ChArray32;
   signal byteena : ChArray4;
 --  signal ss_status : std_logic_vector(31 downto 0);
-  signal excessp16 : ChArray8 := (others=>"00001010");
-  signal excessd16 : ChArray8 := (others=>"00001010");
 
   signal flush : std_logic := '0';
   signal count_reset : std_logic := '0';
@@ -369,10 +369,6 @@ begin
         when Write =>
           if ( LocalBusAddress(4 downto 2) = EBM_CntRst(4 downto 2) ) then
             count_reset <= '1';
-          elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessP16(4 downto 2) ) then
-            excessp16(id) <= LocalBusDataIn(7 downto 0);
-          elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessD16(4 downto 2) ) then
-            excessd16(id) <= LocalBusDataIn(7 downto 0);
           end if;
           ss_bus <= Done;
           
@@ -396,12 +392,6 @@ begin
 --            elsif (LocalBusAddress(4 downto 2) = EBM_Status(4 downto 2)) then
 --              LocalBusDataOut(31 downto 0) <= ss_status;
 --              ss_bus <= Done;
-            elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessP16(4 downto 2) ) then
-              LocalBusDataOut(7 downto 0) <= excessp16(id);
-              ss_bus <= Done;
-            elsif ( LocalBusAddress(4 downto 2) = EBM_ExcessD16(4 downto 2) ) then
-              LocalBusDataOut(7 downto 0) <= excessd16(id);
-              ss_bus <= Done;
             else
               ss_bus <= Done;
             end if;
