@@ -47,8 +47,8 @@ architecture EventBuffer of EventBuffer is
       Thres : in ChArray16;
       excessp1 : in std_logic_vector(7 downto 0);
       excessd1 : in std_logic_vector(7 downto 0);
-      excessp1 : in ChArray8;
-      excessd1 : in ChArray8;
+      excessp16 : in ChArray8;
+      excessd16 : in ChArray8;
       LocalBusAddress : in std_logic_vector(31 downto 0);
       LocalBusDataIn : in std_logic_vector(31 downto 0);
       LocalBusDataOut : out std_logic_vector(31 downto 0);
