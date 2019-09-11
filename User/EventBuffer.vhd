@@ -83,6 +83,7 @@ architecture EventBuffer of EventBuffer is
   signal excessd1 : std_logic_vector(7 downto 0) := "00001010";
   signal excessp16 : ChArray8 := (others=>"00001010");
   signal excessd16 : ChArray8 := (others=>"00001010");
+  signal MarkLevel : std_logic_vector(13 downto 0) := (others=>'1');
 
   type EBBusType is (
     Initialize,
