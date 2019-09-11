@@ -25,6 +25,7 @@ entity EventBufferManager is
     excessd1 : in std_logic_vector(7 downto 0);
     excessp16 : in ChArray8;
     excessd16 : in ChArray8;
+    MarkLevel : in std_logic_vector(13 downto 0);
     LocalBusAddress : in std_logic_vector(31 downto 0);
     LocalBusDataIn : in std_logic_vector(31 downto 0);
     LocalBusdataout : out std_logic_vector(31 downto 0);
@@ -54,6 +55,7 @@ architecture EventBufferManager of EventBufferManager is
     cmptype : in std_logic_vector(8 downto 0);
     excessp : in std_logic_vector(7 downto 0);
     excessd : in std_logic_vector(7 downto 0);
+    MarkLevel : in std_logic_vector(13 downto 0);
     wren : out std_logic;
     byteena : out std_logic_vector(3 downto 0);
     start : in std_logic;
@@ -155,6 +157,7 @@ begin
 --      excessd => excessd,
       excessp => excessp16(i),
       excessd => excessd16(i),
+      MarkLevel => MarkLevel,
       wren => wren(i),
       byteena => byteena(i),
       start => BufferStart,

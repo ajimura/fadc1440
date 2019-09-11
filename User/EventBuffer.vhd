@@ -49,6 +49,7 @@ architecture EventBuffer of EventBuffer is
       excessd1 : in std_logic_vector(7 downto 0);
       excessp16 : in ChArray8;
       excessd16 : in ChArray8;
+      MarkLevel : in std_logic_vector(13 downto 0);
       LocalBusAddress : in std_logic_vector(31 downto 0);
       LocalBusDataIn : in std_logic_vector(31 downto 0);
       LocalBusDataOut : out std_logic_vector(31 downto 0);
@@ -115,6 +116,7 @@ begin
         excessd1 => excessd1,
         excessp16 => excessp16,
         excessd16 => excessd16,
+        MarkLevel => MarkLevel,
         LocalBusAddress => LocalBusAddress,
         LocalBusDataIn => LocalBusDataIn,
         LocalBusDataOut => BusDataOut(i),
@@ -192,6 +194,8 @@ begin
                 excessp16(id) <= LocalBusDataIn( 7 downto 0);
               elsif ( LocalBusAddress(7 downto 2) = EBM_ExcessD16(7 downto 2) ) then
                 excessd16(id) <= LocalBusDataIn( 7 downto 0);
+              elsif ( LocalBusAddress(7 downto 2) = EBM_MarkLevel(7 downto 2) ) then
+                MarkLevel <= LocalBusDataIn(13 downto 0);
               end if;
             else
               if (LocalBusAddress(7 downto 2) = EBM_Range(7 downto 2)) then
@@ -209,6 +213,8 @@ begin
                 TmpDataOut(7 downto 0) <= excessp16(id);
               elsif (LocalBusAddress(7 downto 2) = EBM_ExcessD16(7 downto 2)) then
                 TmpDataOut(7 downto 0) <= excessd16(id);
+              elsif (LocalBusAddress(7 downto 2) = EBM_MarkLevel(7 downto 2)) then
+                TmpDataOut(13 downto 0) <= MarkLevel;
               end if;
             end if;
             ss_bus <= Done;

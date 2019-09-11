@@ -22,6 +22,7 @@ entity ChBufManSPeak is
     cmptype : in std_logic_vector(8 downto 0);
     excessp : in std_logic_vector(7 downto 0);
     excessd : in std_logic_vector(7 downto 0);
+    MarkLevel : in std_logic_vector(13 downto 0);
     wren : out std_logic;
     byteena : out std_logic_vector(3 downto 0);
     start : in std_logic;
@@ -65,7 +66,7 @@ architecture ChBufManSPeak of ChBufManSPeak is
   signal keepP : std_logic_vector(2 downto 0) := "000";
   signal keepQ : std_logic_vector(2 downto 0) := "000";
   signal keepR : std_logic_vector(2 downto 0) := "000";
---  signal keepM : std_logic_vector(2 downto 0) := "000";
+  signal keepM : std_logic_vector(2 downto 0) := "000";
   signal keepD : std_logic_vector(2 downto 0) := "000";
   signal keepE : std_logic_vector(2 downto 0) := "000";
   signal keepF : std_logic_vector(2 downto 0) := "000";
@@ -323,6 +324,28 @@ begin
     end if;
   end process;
 
+  -- check mark
+  process (Clock)
+  begin
+    if (Clock'event and Clock='1') then
+      if ((datain1(13 downto 0)>=MarkLevel and datain2(13 downto 0)<MarkLevel) or
+          (datain1(13 downto 0)<MarkLevel and datain2(13 downto 0)>=MarkLevel)) then
+
+--      if ( (datain1(13 downto 12)/="00" and datain2(13 downto 12) ="00") or  -- <4096 -> >=4096
+--           (datain1(13 downto 12) ="00" and datain2(13 downto 12)/="00") or  -- >=4096 -> <4096
+--           (datain1(13)           ='1'  and datain2(13)           ='0' ) or  -- <8192 -> >=8192
+--           (datain1(13)           ='0'  and datain2(13)           ='1' ) or  -- >=8192 -> <8192
+--           (datain1(12)           ='0'  and datain2(13 downto 12) ="11") or  -- <12288 -> >=12288
+--           (datain1(13 downto 12) ="11" and datain2(12)           ='0' ) ) then  -- >=12288 -> <12288
+        if (cmptype(1)='1') then
+          keepM <= "011";
+        end if;
+      else
+          if (keepM > 0) then keepM <= keepM - 1; end if;
+      end if;
+    end if;
+  end process;
+
   -- Write Process
   process ( Clock, Reset, RstSoft )
   begin
@@ -367,6 +390,7 @@ begin
                 keepD(2 downto 1)/="00" or
                 keepE(2 downto 1)/="00" or
                 keepF(2 downto 1)/="00" or
+                keepM(2 downto 1)/="00" or
                 keepS(2 downto 1)/="00") then         -- put data
               wren <= '1';
               wrpointer <= wrpointer + 1;
@@ -378,6 +402,7 @@ begin
                    keepD(0)='1' or
                    keepE(0)='1' or
                    keepF(0)='1' or
+                   keepM(0)='1' or
                    keepS(0)='1') then      -- put timestamp
               wren <= '1';
               wrpointer <= wrpointer + 1;
